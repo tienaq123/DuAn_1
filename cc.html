@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .body {
+            width: 1200px;
+            margin: auto;
+        }
+
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Đơn Hàng</h1>
+        <form action="" name="frmDonHang" onsubmit="return validate()">
+            <table>
+                <tr>
+                    <th>STT</th>
+                    <th>Tên Sản Phẩm</th>
+                    <th>Giá</th>
+                    <th>Số Lượng</th>
+                    <th>Thành Tiền</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Táo Mỹ</td>
+                    <td><input type="number" class="txtGia" min="0"></td>
+                    <td><input type="number" class="txtSL" id="" min="0"></td>
+                    <td><span class="thanhTien"></span></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Táo tàu</td>
+                    <td><input type="number" class="txtGia" min="0"></td>
+                    <td><input type="number" class="txtSL" id="" min="0"></td>
+                    <td><span class="thanhTien"></span></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Lê SaPa</td>
+                    <td><input type="number" class="txtGia" min="0"></td>
+                    <td><input type="number" class="txtSL" id="" min="0"></td>
+                    <td><span class="thanhTien"></span></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Cam Cao Phong</td>
+                    <td><input type="number" class="txtGia" min="0"></td>
+                    <td><input type="number" class="txtSL" id="" min="0"></td>
+                    <td><span class="thanhTien"></span></td>
+                </tr>
+                <tr>
+                    <td>Tổng Tiền</td>
+                    <td><span class="tongTien"></span></td>
+                </tr>
+            </table>
+            <button>Đặt Mua</button>
+        </form>
+        <script>
+            var txtGia = document.querySelectorAll(".txtGia");
+            var txtSL = document.querySelectorAll(".txtSL");
+            txtGia.forEach(function (item) {
+                item.onchange = function () {
+                    let gia = item.value;
+                    let sl = item.parentNode.parentNode.querySelector(".txtSL").value;
+                    item.parentNode.parentNode.querySelector(".thanhTien").innerHTML = sl * gia;
+                    tinhTongtien();
+                }
+            })
+            txtSL.forEach(function (item) {
+                item.onchange = function () {
+                    let sl = item.value;
+                    let gia = item.parentNode.parentNode.querySelector(".txtGia").value;
+                    item.parentNode.parentNode.querySelector(".thanhTien").innerHTML = sl * gia;
+                    tinhTongtien();
+                }
+            })
+
+            function tinhTongtien() {
+                var tongTien = document.querySelector(".tongTien");
+                var thanhTien = document.querySelectorAll(".thanhTien");
+                var tong = 0;
+                for (let i = 0; i < thanhTien.length; i++) {
+                    tong += Number(thanhTien[i].innerHTML);
+                }
+                tongTien.innerHTML = tong;
+            }
+        </script>
+    </div>
+</body>
+
+</html>
