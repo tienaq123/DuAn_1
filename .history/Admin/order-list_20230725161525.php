@@ -24,7 +24,6 @@ $conn = connectToDatabase();
   <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 
-
 <body>
   <div class="tp-main-wrapper bg-slate-100 h-screen" x-data="{ sideMenu: false }">
     <!-- Slide Left -->
@@ -62,6 +61,15 @@ $conn = connectToDatabase();
         <div class="bg-white rounded-t-md rounded-b-md shadow-xs py-4">
           <div class="tp-search-box flex items-center justify-between px-8 py-8 flex-wrap">
             <div class="search-input relative">
+              <input class="input h-[44px] w-full pl-14" type="text" id="searchKeyword" placeholder="Search by order id" />
+              <button class="absolute top-1/2 left-5 translate-y-[-50%] hover:text-theme" id="searchButton">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path d="M18.9999 19L14.6499 14.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="search-input relative">
               <input id="searchKeyword" class="input h-[44px] w-full pl-14" type="text" placeholder="Search by order ID" />
               <button id="searchButton" class="absolute top-1/2 left-5 translate-y-[-50%] hover:text-theme">
                 <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -85,13 +93,15 @@ $conn = connectToDatabase();
             </div>
           </div>
           <div class="relative overflow-x-auto mx-8">
-            <table id="searchResults" class="w-[1500px] 2xl:w-full text-base text-left text-gray-500"">
-                  <!-- Đây là nơi hiển thị kết quả tìm kiếm -->
-            </table>
-            <table class=" w-[1500px] 2xl:w-full text-base text-left text-gray-500 active-table">
+            <table class="w-[1500px] 2xl:w-full text-base text-left text-gray-500">
               <thead class="bg-white">
                 <tr class="border-b border-gray6 text-tiny">
-
+                  <th scope="col" class="py-3 text-tiny text-text2 uppercase font-semibold w-[3%]">
+                    <div class="tp-checkbox -translate-y-[3px]">
+                      <input id="selectAllProduct" type="checkbox" />
+                      <label for="selectAllProduct"></label>
+                    </div>
+                  </th>
                   <th scope="col" class="pr-8 py-3 text-tiny text-text2 uppercase font-semibold w-[170px]">
                     Order ID
                   </th>
@@ -119,7 +129,6 @@ $conn = connectToDatabase();
                 </tr>
               </thead>
               <tbody>
-
                 <!-- List Order -->
                 <?php
                 // Lấy dữ liệu từ bảng order và order_detail thông qua điều kiện kết nối
@@ -130,7 +139,12 @@ $conn = connectToDatabase();
                 ?>
 
                   <tr class="bg-white border-b border-gray6 last:border-0 text-start mx-9">
-
+                    <td class="pr-3 whitespace-nowrap">
+                      <div class="tp-checkbox">
+                        <input id="product-1" type="checkbox" />
+                        <label for="product-1"></label>
+                      </div>
+                    </td>
                     <td class="px-3 py-3 font-normal text-[#55585B]">
                       #<?php echo $row['order_id'] ?>
                     </td>
@@ -248,14 +262,6 @@ $conn = connectToDatabase();
       xhttp.send();
     });
   </script>
-  Sau khi bạn thực hiện các thay đổi này, bạn sẽ có một trang tìm kiếm có thể tìm kiếm các đơn hàng theo ID.
-
-
-
-
-
-
-
 </body>
 
 <!-- Mirrored from weblearnbd.net/tphtml/ebazer/order-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Jul 2023 14:34:51 GMT -->

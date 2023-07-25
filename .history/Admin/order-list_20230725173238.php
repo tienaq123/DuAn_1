@@ -235,6 +235,7 @@ $conn = connectToDatabase();
     document.getElementById("searchButton").addEventListener("click", function() {
       // Lấy từ khóa tìm kiếm từ input
       var keyword = document.getElementById("searchKeyword").value;
+      console.log(keyword);
 
       // Gửi yêu cầu tìm kiếm đến máy chủ bằng Ajax
       var xhttp = new XMLHttpRequest();

@@ -24,7 +24,6 @@ $conn = connectToDatabase();
   <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 
-
 <body>
   <div class="tp-main-wrapper bg-slate-100 h-screen" x-data="{ sideMenu: false }">
     <!-- Slide Left -->
@@ -85,10 +84,7 @@ $conn = connectToDatabase();
             </div>
           </div>
           <div class="relative overflow-x-auto mx-8">
-            <table id="searchResults" class="w-[1500px] 2xl:w-full text-base text-left text-gray-500"">
-                  <!-- Đây là nơi hiển thị kết quả tìm kiếm -->
-            </table>
-            <table class=" w-[1500px] 2xl:w-full text-base text-left text-gray-500 active-table">
+            <table class="w-[1500px] 2xl:w-full text-base text-left text-gray-500">
               <thead class="bg-white">
                 <tr class="border-b border-gray6 text-tiny">
 
@@ -119,7 +115,9 @@ $conn = connectToDatabase();
                 </tr>
               </thead>
               <tbody>
-
+                <tr id="searchResults" class="bg-white border-b border-gray6 last:border-0 text-start mx-9">
+                  <!-- Đây là nơi hiển thị kết quả tìm kiếm -->
+                </tr>
                 <!-- List Order -->
                 <?php
                 // Lấy dữ liệu từ bảng order và order_detail thông qua điều kiện kết nối

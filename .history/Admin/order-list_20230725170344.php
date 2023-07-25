@@ -24,7 +24,6 @@ $conn = connectToDatabase();
   <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 
-
 <body>
   <div class="tp-main-wrapper bg-slate-100 h-screen" x-data="{ sideMenu: false }">
     <!-- Slide Left -->
@@ -61,6 +60,15 @@ $conn = connectToDatabase();
         <!-- table -->
         <div class="bg-white rounded-t-md rounded-b-md shadow-xs py-4">
           <div class="tp-search-box flex items-center justify-between px-8 py-8 flex-wrap">
+            <!-- <div class="search-input relative">
+              <input class="input h-[44px] w-full pl-14" type="text" id="searchKeyword" placeholder="Search by order id" />
+              <button class="absolute top-1/2 left-5 translate-y-[-50%] hover:text-theme" id="searchButton">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path d="M18.9999 19L14.6499 14.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </button>
+            </div> -->
             <div class="search-input relative">
               <input id="searchKeyword" class="input h-[44px] w-full pl-14" type="text" placeholder="Search by order ID" />
               <button id="searchButton" class="absolute top-1/2 left-5 translate-y-[-50%] hover:text-theme">
@@ -85,10 +93,7 @@ $conn = connectToDatabase();
             </div>
           </div>
           <div class="relative overflow-x-auto mx-8">
-            <table id="searchResults" class="w-[1500px] 2xl:w-full text-base text-left text-gray-500"">
-                  <!-- Đây là nơi hiển thị kết quả tìm kiếm -->
-            </table>
-            <table class=" w-[1500px] 2xl:w-full text-base text-left text-gray-500 active-table">
+            <table class="w-[1500px] 2xl:w-full text-base text-left text-gray-500">
               <thead class="bg-white">
                 <tr class="border-b border-gray6 text-tiny">
 
@@ -119,7 +124,9 @@ $conn = connectToDatabase();
                 </tr>
               </thead>
               <tbody>
-
+                <tr id="searchResults" class="bg-white border-b border-gray6 last:border-0 text-start mx-9">
+                  <!-- Đây là nơi hiển thị kết quả tìm kiếm -->
+                </tr>
                 <!-- List Order -->
                 <?php
                 // Lấy dữ liệu từ bảng order và order_detail thông qua điều kiện kết nối

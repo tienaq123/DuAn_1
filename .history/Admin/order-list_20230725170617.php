@@ -24,7 +24,6 @@ $conn = connectToDatabase();
   <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 
-
 <body>
   <div class="tp-main-wrapper bg-slate-100 h-screen" x-data="{ sideMenu: false }">
     <!-- Slide Left -->
@@ -87,8 +86,8 @@ $conn = connectToDatabase();
           <div class="relative overflow-x-auto mx-8">
             <table id="searchResults" class="w-[1500px] 2xl:w-full text-base text-left text-gray-500"">
                   <!-- Đây là nơi hiển thị kết quả tìm kiếm -->
-            </table>
-            <table class=" w-[1500px] 2xl:w-full text-base text-left text-gray-500 active-table">
+                </div>
+            <table class=" w-[1500px] 2xl:w-full text-base text-left text-gray-500">
               <thead class="bg-white">
                 <tr class="border-b border-gray6 text-tiny">
 

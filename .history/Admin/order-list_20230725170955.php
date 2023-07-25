@@ -23,7 +23,11 @@ $conn = connectToDatabase();
   <link rel="stylesheet" href="assets/css/custom.css" />
   <link rel="stylesheet" href="assets/css/main.css" />
 </head>
-
+<style>
+  .active-table {
+    display: none;
+  }
+</style>
 
 <body>
   <div class="tp-main-wrapper bg-slate-100 h-screen" x-data="{ sideMenu: false }">

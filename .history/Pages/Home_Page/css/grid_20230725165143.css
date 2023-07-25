@@ -16,6 +16,10 @@
   float: left;
   display: inline;
 }
+.asd {
+  display: flex;
+  justify-content: space-between;
+}
 
 .grid_1 {
   width: 80px;
