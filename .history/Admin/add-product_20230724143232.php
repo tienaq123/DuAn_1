@@ -1,5 +1,7 @@
-<?php require_once('./function.php');
-$conn = connectToDatabase(); ?>
+<?php
+require_once('./function.php');
+$conn = connectToDatabase();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <!-- Mirrored from weblearnbd.net/tphtml/ebazer/add-product.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Jul 2023 14:34:45 GMT -->
@@ -24,7 +26,9 @@ $conn = connectToDatabase(); ?>
 <body>
   <!--  -->
   <div class="tp-main-wrapper bg-slate-100 h-screen" x-data="{ sideMenu: false }">
-    <?php include '../Template/sideMenu.php' ?>
+    <?php
+    include '../Template/sideMenu.php'
+    ?>
 
     <div class="fixed top-0 left-0 w-full h-full z-40 bg-black/70 transition-all duration-300" :class="sideMenu ? 'visible opacity-1' : '  invisible opacity-0 '" x-on:click="sideMenu = ! sideMenu"></div>
 
@@ -189,7 +193,7 @@ $conn = connectToDatabase(); ?>
                               <p class="mb-0 text-base text-black">
                                 Price <span class="text-red">*</span>
                               </p>
-                              <input class="input w-full h-[44px] rounded-md border border-gray6 px-6 text-base" type="number" placeholder="Product price" name="price" />
+                              <input class="input w-full h-[44px] rounded-md border border-gray6 px-6 text-base" type="text" placeholder="Product price" name="price" />
                               <span class="text-tiny leading-4">Set the base price of product.</span>
                             </div>
                             <!-- input -->
@@ -197,7 +201,7 @@ $conn = connectToDatabase(); ?>
                               <p class="mb-0 text-base text-black">
                                 Old price <span class="text-red">*</span>
                               </p>
-                              <input class="input w-full h-[44px] rounded-md border border-gray6 px-6 text-base" type="number" placeholder="Old price product" name="old_price" />
+                              <input class="input w-full h-[44px] rounded-md border border-gray6 px-6 text-base" type="text" placeholder="Old price product" name="old_price" />
                               <span class="text-tiny leading-4">Set the old price of the product</span>
                             </div>
                           </div>

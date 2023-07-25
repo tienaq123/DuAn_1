@@ -189,7 +189,7 @@ $conn = connectToDatabase(); ?>
                               <p class="mb-0 text-base text-black">
                                 Price <span class="text-red">*</span>
                               </p>
-                              <input class="input w-full h-[44px] rounded-md border border-gray6 px-6 text-base" type="number" placeholder="Product price" name="price" />
+                              <input class="input w-full h-[44px] rounded-md border border-gray6 px-6 text-base" type="text" placeholder="Product price" name="price" />
                               <span class="text-tiny leading-4">Set the base price of product.</span>
                             </div>
                             <!-- input -->
@@ -197,7 +197,7 @@ $conn = connectToDatabase(); ?>
                               <p class="mb-0 text-base text-black">
                                 Old price <span class="text-red">*</span>
                               </p>
-                              <input class="input w-full h-[44px] rounded-md border border-gray6 px-6 text-base" type="number" placeholder="Old price product" name="old_price" />
+                              <input class="input w-full h-[44px] rounded-md border border-gray6 px-6 text-base" type="text" placeholder="Old price product" name="old_price" />
                               <span class="text-tiny leading-4">Set the old price of the product</span>
                             </div>
                           </div>

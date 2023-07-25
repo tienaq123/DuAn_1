@@ -297,10 +297,10 @@ $conn = connectToDatabase();
                         </div>
                       </div>
 
-                      <form method="post" action="">
+                      <form style="cursor: no-drop;" method="post" action="">
                         <input type="hidden" name="category_id" value="">
                         <div class="relative" x-data="{ deleteTooltip: false }">
-                          <button style="cursor: no-drop;" type="submit" name="delete_category" class="w-10 h-10 leading-[33px] text-tiny bg-white border border-gray text-slate-600 rounded-md hover:bg-danger hover:border-danger hover:text-white" x-on:mouseenter="deleteTooltip = true" x-on:mouseleave="deleteTooltip = false">
+                          <button type="submit" name="delete_category" class="w-10 h-10 leading-[33px] text-tiny bg-white border border-gray text-slate-600 rounded-md hover:bg-danger hover:border-danger hover:text-white" x-on:mouseenter="deleteTooltip = true" x-on:mouseleave="deleteTooltip = false">
                           <box-icon id="icon-delete" type="solid" name="trash"></box-icon>
                           </button>
                           <div x-show="deleteTooltip" class="flex flex-col items-center z-50 absolute left-1/2 -translate-x-1/2 bottom-full mb-1">
@@ -324,7 +324,7 @@ $conn = connectToDatabase();
 
             </table>
           </div>
-          <div class="flex justify-between items-center flex-wrap">
+          <div style="cursor: no-drop;" class="flex justify-between items-center flex-wrap">
             <p class="mb-0 text-tiny">Showing 10 Prdouct of 120</p>
             <div class="pagination py-3 flex justify-end items-center">
               <a href="#" class="inline-block rounded-md w-10 h-10 text-center leading-[33px] border border-gray mr-2 last:mr-0 hover:bg-theme hover:text-white hover:border-theme">

@@ -2,7 +2,6 @@
 require_once('./function.php');
 $conn = connectToDatabase();
 ?>
-<?php require_once('./search_product.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <!-- Mirrored from weblearnbd.net/tphtml/ebazer/product-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Jul 2023 14:34:38 GMT -->
@@ -150,36 +149,14 @@ $conn = connectToDatabase();
         <div class="bg-white rounded-t-md rounded-b-md shadow-xs py-4">
           <div class="tp-search-box flex items-center justify-between px-8 py-8">
             <div class="search-input relative">
-              <input class="input h-[44px] w-full pl-14" type="text" id="searchKeyword" placeholder="Search by product name" />
-              <button class="absolute top-1/2 left-5 translate-y-[-50%] hover:text-theme" id="searchButton">
+              <input class="input h-[44px] w-full pl-14" type="text" placeholder="Search by product name" />
+              <button class="absolute top-1/2 left-5 translate-y-[-50%] hover:text-theme">
                 <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                   <path d="M18.9999 19L14.6499 14.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
               </button>
             </div>
-
-
-            <!--  -->
-            <script>
-              // Lắng nghe sự kiện click vào nút tìm kiếm
-              document.getElementById("searchButton").addEventListener("click", function() {
-                // Lấy từ khóa tìm kiếm từ input
-                var keyword = document.getElementById("searchKeyword").value;
-
-                // Gửi yêu cầu tìm kiếm đến máy chủ bằng Ajax
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function() {
-                  if (this.readyState == 4 && this.status == 200) {
-                    // Khi máy chủ trả về kết quả tìm kiếm, hiển thị danh sách sản phẩm
-                    document.getElementById("searchResults").innerHTML = this.responseText;
-                  }
-                };
-                xhttp.open("GET", "./search_product.php?keyword=" + encodeURIComponent(keyword), true);
-                xhttp.send();
-              });
-            </script>
-            <!--  -->
             <div class="flex justify-end space-x-6">
               <div class="search-select mr-3 flex items-center space-x-3">
                 <span class="text-tiny inline-block leading-none -translate-y-[2px]">Status :
@@ -198,9 +175,6 @@ $conn = connectToDatabase();
             </div>
           </div>
           <div class="relative overflow-x-auto mx-8">
-            <div id="searchResults">
-              <!-- Danh sách sản phẩm tìm thấy sẽ được hiển thị ở đây -->
-            </div>
             <table class="w-full text-base text-left text-gray-500">
               <thead class="bg-white">
                 <tr class="border-b border-gray6 text-tiny">
@@ -234,8 +208,10 @@ $conn = connectToDatabase();
                 </tr>
               </thead>
               <tbody>
-
-
+                <div id="searchResults">
+                  <!-- Kết quả tìm kiếm sẽ được hiển thị ở đây -->
+                </div>
+                <!--  -->
                 <?php
                 // Lấy danh sách sản phẩm từ database
 
@@ -283,6 +259,7 @@ $conn = connectToDatabase();
                     // Các nút sửa và xóa ở đây
                     echo '
                     <div class="flex items-center justify-center space-x-2">
+
                       <!-- Edit Category form -->
                       <div class="relative" x-data="{ editTooltip: false }">
                         <button class="w-10 h-10 leading-10 text-tiny bg-success text-white rounded-md hover:bg-green-600" x-on:mouseenter="editTooltip = true" x-on:mouseleave="editTooltip = false">
@@ -300,7 +277,7 @@ $conn = connectToDatabase();
                       <form method="post" action="">
                         <input type="hidden" name="category_id" value="">
                         <div class="relative" x-data="{ deleteTooltip: false }">
-                          <button style="cursor: no-drop;" type="submit" name="delete_category" class="w-10 h-10 leading-[33px] text-tiny bg-white border border-gray text-slate-600 rounded-md hover:bg-danger hover:border-danger hover:text-white" x-on:mouseenter="deleteTooltip = true" x-on:mouseleave="deleteTooltip = false">
+                          <button type="submit" name="delete_category" class="w-10 h-10 leading-[33px] text-tiny bg-white border border-gray text-slate-600 rounded-md hover:bg-danger hover:border-danger hover:text-white" x-on:mouseenter="deleteTooltip = true" x-on:mouseleave="deleteTooltip = false">
                           <box-icon id="icon-delete" type="solid" name="trash"></box-icon>
                           </button>
                           <div x-show="deleteTooltip" class="flex flex-col items-center z-50 absolute left-1/2 -translate-x-1/2 bottom-full mb-1">
@@ -355,7 +332,6 @@ $conn = connectToDatabase();
   <script src="assets/js/quill.js"></script>
   <script src="assets/js/rangeslider.min.js"></script>
   <script src="assets/js/main.js"></script>
-
 </body>
 
 <!-- Mirrored from weblearnbd.net/tphtml/ebazer/product-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Jul 2023 14:34:40 GMT -->

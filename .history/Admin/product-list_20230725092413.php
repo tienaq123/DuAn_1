@@ -324,7 +324,7 @@ $conn = connectToDatabase();
 
             </table>
           </div>
-          <div class="flex justify-between items-center flex-wrap">
+          <div style="cursor: no-drop;" class="flex justify-between items-center flex-wrap">
             <p class="mb-0 text-tiny">Showing 10 Prdouct of 120</p>
             <div class="pagination py-3 flex justify-end items-center">
               <a href="#" class="inline-block rounded-md w-10 h-10 text-center leading-[33px] border border-gray mr-2 last:mr-0 hover:bg-theme hover:text-white hover:border-theme">

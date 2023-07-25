@@ -153,12 +153,14 @@ $conn = connectToDatabase();
               <input class="input h-[44px] w-full pl-14" type="text" id="searchKeyword" placeholder="Search by product name" />
               <button class="absolute top-1/2 left-5 translate-y-[-50%] hover:text-theme" id="searchButton">
                 <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                  <path d="M18.9999 19L14.6499 14.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <!-- Icon here -->
                 </svg>
               </button>
             </div>
-
+            <br>
+            <div id="searchResults">
+              <!-- Danh sách sản phẩm tìm thấy sẽ được hiển thị ở đây -->
+            </div>
 
             <!--  -->
             <script>
@@ -198,9 +200,6 @@ $conn = connectToDatabase();
             </div>
           </div>
           <div class="relative overflow-x-auto mx-8">
-            <div id="searchResults">
-              <!-- Danh sách sản phẩm tìm thấy sẽ được hiển thị ở đây -->
-            </div>
             <table class="w-full text-base text-left text-gray-500">
               <thead class="bg-white">
                 <tr class="border-b border-gray6 text-tiny">
@@ -300,7 +299,7 @@ $conn = connectToDatabase();
                       <form method="post" action="">
                         <input type="hidden" name="category_id" value="">
                         <div class="relative" x-data="{ deleteTooltip: false }">
-                          <button style="cursor: no-drop;" type="submit" name="delete_category" class="w-10 h-10 leading-[33px] text-tiny bg-white border border-gray text-slate-600 rounded-md hover:bg-danger hover:border-danger hover:text-white" x-on:mouseenter="deleteTooltip = true" x-on:mouseleave="deleteTooltip = false">
+                          <button type="submit" name="delete_category" class="w-10 h-10 leading-[33px] text-tiny bg-white border border-gray text-slate-600 rounded-md hover:bg-danger hover:border-danger hover:text-white" x-on:mouseenter="deleteTooltip = true" x-on:mouseleave="deleteTooltip = false">
                           <box-icon id="icon-delete" type="solid" name="trash"></box-icon>
                           </button>
                           <div x-show="deleteTooltip" class="flex flex-col items-center z-50 absolute left-1/2 -translate-x-1/2 bottom-full mb-1">

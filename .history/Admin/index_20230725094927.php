@@ -379,7 +379,54 @@ $conn = connectToDatabase();
                                 </div>
                                 <p class="font-medium text-success mb-0">$660.22</p>
                             </div>
-
+                            <div class="flex flex-wrap items-center justify-between">
+                                <div class="m-2 mb:sm-0 flex items-center space-x-3">
+                                    <div class="avatar">
+                                        <img class="rounded-full w-10 h-10" src="assets/img/users/user-7.jpg" alt="avatar" />
+                                    </div>
+                                    <div>
+                                        <h4 class="text-base text-slate-700 mb-[6px] leading-none">
+                                            Shahnewaz
+                                        </h4>
+                                        <p class="text-sm text-slate-400 line-clamp-1 m-0 leading-none">
+                                            Jan 15, 2023 - 10:30 AM
+                                        </p>
+                                    </div>
+                                </div>
+                                <p class="font-medium text-danger mb-0">$-80.40</p>
+                            </div>
+                            <div class="flex flex-wrap items-center justify-between">
+                                <div class="m-2 mb:sm-0 flex items-center space-x-3">
+                                    <div class="avatar">
+                                        <img class="rounded-full w-10 h-10" src="assets/img/users/user-8.jpg" alt="avatar" />
+                                    </div>
+                                    <div>
+                                        <h4 class="text-base text-slate-700 mb-[6px] leading-none">
+                                            Steve Smith
+                                        </h4>
+                                        <p class="text-sm text-slate-400 line-clamp-1 m-0 leading-none">
+                                            Feb 01, 2023 - 07:05 PM
+                                        </p>
+                                    </div>
+                                </div>
+                                <p class="font-medium text-success mb-0">$150.00</p>
+                            </div>
+                            <div class="flex flex-wrap items-center justify-between">
+                                <div class="m-2 mb:sm-0 flex items-center space-x-3">
+                                    <div class="avatar">
+                                        <img class="rounded-full w-10 h-10" src="assets/img/users/user-9.jpg" alt="avatar" />
+                                    </div>
+                                    <div>
+                                        <h4 class="text-base text-slate-700 mb-[6px] leading-none">
+                                            Robert Downy
+                                        </h4>
+                                        <p class="text-sm text-slate-400 line-clamp-1 m-0 leading-none">
+                                            Feb 21, 2023 - 11:22 PM
+                                        </p>
+                                    </div>
+                                </div>
+                                <p class="font-medium text-success mb-0">$1482.00</p>
+                            </div>
                         </div>
                     </div>
 
@@ -554,13 +601,13 @@ $conn = connectToDatabase();
                                                         #<?php echo $product_id ?>
                                                     </td>
                                                     <td class="px-3 py-3 font-normal text-slate-600">
-                                                        <?php echo $category ?>
+                                                        Computer
                                                     </td>
                                                     <td class="px-3 py-3 font-normal text-slate-600">
-                                                        <?php echo $formattedPrice ?>đ
+                                                        $2999.00
                                                     </td>
-                                                    <td class="px-3 py-3 font-normal text-slate-600">
-                                                        <?php echo $formattedOld_Price ?>đ
+                                                    <td class="px-3 py-3">
+                                                        <span class="text-[11px] text-success px-3 py-1 rounded-md leading-none bg-success/10 font-medium">Active</span>
                                                     </td>
                                                     <td class="px-3 py-3">
                                                         <div class="flex items-center space-x-2">
@@ -573,7 +620,7 @@ $conn = connectToDatabase();
                                                                 </span>
                                                                 Edit
                                                             </button>
-                                                            <button style="display: none;" class="bg-white text-slate-700 border border-slate-200 hover:bg-danger hover:border-danger hover:text-white inline-block text-center leading-5 text-tiny font-medium pt-[6px] pb-[5px] px-4 rounded-md">
+                                                            <button class="bg-white text-slate-700 border border-slate-200 hover:bg-danger hover:border-danger hover:text-white inline-block text-center leading-5 text-tiny font-medium pt-[6px] pb-[5px] px-4 rounded-md">
                                                                 <span class="text-[9px] inline-block -translate-y-[1px] mr-[1px]">
                                                                     <svg class="-translate-y-px" width="10" height="10" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                         <path d="M19.0697 4.23C17.4597 4.07 15.8497 3.95 14.2297 3.86V3.85L14.0097 2.55C13.8597 1.63 13.6397 0.25 11.2997 0.25H8.67967C6.34967 0.25 6.12967 1.57 5.96967 2.54L5.75967 3.82C4.82967 3.88 3.89967 3.94 2.96967 4.03L0.929669 4.23C0.509669 4.27 0.209669 4.64 0.249669 5.05C0.289669 5.46 0.649669 5.76 1.06967 5.72L3.10967 5.52C8.34967 5 13.6297 5.2 18.9297 5.73C18.9597 5.73 18.9797 5.73 19.0097 5.73C19.3897 5.73 19.7197 5.44 19.7597 5.05C19.7897 4.64 19.4897 4.27 19.0697 4.23Z" fill="currentColor" />

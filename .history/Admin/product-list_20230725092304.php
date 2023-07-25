@@ -297,10 +297,10 @@ $conn = connectToDatabase();
                         </div>
                       </div>
 
-                      <form method="post" action="">
+                      <form style="cursor: none;" method="post" action="">
                         <input type="hidden" name="category_id" value="">
                         <div class="relative" x-data="{ deleteTooltip: false }">
-                          <button style="cursor: no-drop;" type="submit" name="delete_category" class="w-10 h-10 leading-[33px] text-tiny bg-white border border-gray text-slate-600 rounded-md hover:bg-danger hover:border-danger hover:text-white" x-on:mouseenter="deleteTooltip = true" x-on:mouseleave="deleteTooltip = false">
+                          <button type="submit" name="delete_category" class="w-10 h-10 leading-[33px] text-tiny bg-white border border-gray text-slate-600 rounded-md hover:bg-danger hover:border-danger hover:text-white" x-on:mouseenter="deleteTooltip = true" x-on:mouseleave="deleteTooltip = false">
                           <box-icon id="icon-delete" type="solid" name="trash"></box-icon>
                           </button>
                           <div x-show="deleteTooltip" class="flex flex-col items-center z-50 absolute left-1/2 -translate-x-1/2 bottom-full mb-1">

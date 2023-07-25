@@ -1,5 +1,4 @@
 <?php
-ob_start();
 function connectToDatabase()
 {
     $servername = "localhost"; // Tên máy chủ MySQL, thường là localhost nếu bạn đang chạy trên cùng máy tính.
@@ -38,7 +37,7 @@ function addProduct($conn, $productData)
     $thumbnail = $productData['thumbnail'];
     $category_id = $productData['category'];
     $created_at = date('Y-m-d H:i:s');
-    $sql = "INSERT INTO Product (title, description, price, old_price, thumbnail, category_id, created_at) VALUES ('$title', '$description', '$price', '$old_price', '$thumbnail', $category_id, '$created_at')";
+    $sql = "INSERT INTO Product (title, description, price, old_price, thumbnail, category_id, created_at) VALUES ('$title', '$description', $price, $old_price, '$thumbnail', $category_id, '$created_at')";
     if (mysqli_query($conn, $sql)) {
         // Nếu thêm thành công, bạn có thể thêm mã xử lý để hiển thị thông báo hoặc chuyển hướng người dùng
         // echo "Thêm sản phẩm thành công!";

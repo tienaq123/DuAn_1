@@ -379,7 +379,54 @@ $conn = connectToDatabase();
                                 </div>
                                 <p class="font-medium text-success mb-0">$660.22</p>
                             </div>
-
+                            <div class="flex flex-wrap items-center justify-between">
+                                <div class="m-2 mb:sm-0 flex items-center space-x-3">
+                                    <div class="avatar">
+                                        <img class="rounded-full w-10 h-10" src="assets/img/users/user-7.jpg" alt="avatar" />
+                                    </div>
+                                    <div>
+                                        <h4 class="text-base text-slate-700 mb-[6px] leading-none">
+                                            Shahnewaz
+                                        </h4>
+                                        <p class="text-sm text-slate-400 line-clamp-1 m-0 leading-none">
+                                            Jan 15, 2023 - 10:30 AM
+                                        </p>
+                                    </div>
+                                </div>
+                                <p class="font-medium text-danger mb-0">$-80.40</p>
+                            </div>
+                            <div class="flex flex-wrap items-center justify-between">
+                                <div class="m-2 mb:sm-0 flex items-center space-x-3">
+                                    <div class="avatar">
+                                        <img class="rounded-full w-10 h-10" src="assets/img/users/user-8.jpg" alt="avatar" />
+                                    </div>
+                                    <div>
+                                        <h4 class="text-base text-slate-700 mb-[6px] leading-none">
+                                            Steve Smith
+                                        </h4>
+                                        <p class="text-sm text-slate-400 line-clamp-1 m-0 leading-none">
+                                            Feb 01, 2023 - 07:05 PM
+                                        </p>
+                                    </div>
+                                </div>
+                                <p class="font-medium text-success mb-0">$150.00</p>
+                            </div>
+                            <div class="flex flex-wrap items-center justify-between">
+                                <div class="m-2 mb:sm-0 flex items-center space-x-3">
+                                    <div class="avatar">
+                                        <img class="rounded-full w-10 h-10" src="assets/img/users/user-9.jpg" alt="avatar" />
+                                    </div>
+                                    <div>
+                                        <h4 class="text-base text-slate-700 mb-[6px] leading-none">
+                                            Robert Downy
+                                        </h4>
+                                        <p class="text-sm text-slate-400 line-clamp-1 m-0 leading-none">
+                                            Feb 21, 2023 - 11:22 PM
+                                        </p>
+                                    </div>
+                                </div>
+                                <p class="font-medium text-success mb-0">$1482.00</p>
+                            </div>
                         </div>
                     </div>
 

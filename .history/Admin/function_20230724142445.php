@@ -1,5 +1,5 @@
 <?php
-ob_start();
+// Kết nối tới database (có thể chuyển phần kết nối vào một file riêng nếu muốn)
 function connectToDatabase()
 {
     $servername = "localhost"; // Tên máy chủ MySQL, thường là localhost nếu bạn đang chạy trên cùng máy tính.
@@ -36,20 +36,45 @@ function addProduct($conn, $productData)
     $price = $productData['price'];
     $old_price = $productData['old_price'];
     $thumbnail = $productData['thumbnail'];
-    $category_id = $productData['category'];
     $created_at = date('Y-m-d H:i:s');
-    $sql = "INSERT INTO Product (title, description, price, old_price, thumbnail, category_id, created_at) VALUES ('$title', '$description', '$price', '$old_price', '$thumbnail', $category_id, '$created_at')";
+    // $productData['created_at'] = $created_at;
+    $sql = "INSERT INTO Product (title, description, price, old_price, thumbnail) VALUES ('$title', '$description', $price, $old_price, '$thumbnail')";
     if (mysqli_query($conn, $sql)) {
         // Nếu thêm thành công, bạn có thể thêm mã xử lý để hiển thị thông báo hoặc chuyển hướng người dùng
-        // echo "Thêm sản phẩm thành công!";
-        header("Location: http://localhost/Duan1/Admin/product-list.php");
+        echo "Thêm sản phẩm thành công!";
     } else {
         echo "Lỗi: " . mysqli_error($conn);
     }
 }
 
 
+// {
+//     // Trích xuất thông tin sản phẩm từ dữ liệu post (gửi từ form)
+//     $title = $productData['product_name'];
+//     $description = $productData['description'];
+//     $price = $productData['price'];
+//     $old_price = $productData['old_price'];
+//     $thumbnail = $productData['thumbnail'];
+//     $category_id = $productData['category'];
+//     // Thêm trường created_at vào dữ liệu post
+//     $created_at = date('Y-m-d H:i:s'); // Lấy thời gian hiện tại
+//     $productData['created_at'] = $created_at;
 
+//     // Chuẩn bị truy vấn SQL để thêm sản phẩm vào bảng Product
+//     $sql = "INSERT INTO Product (title, description, price, old_price, thumbnail, category_id, created_at)
+//             VALUES ('$title', '$description', $price, $old_price, '$thumbnail', $category_id, $created_at)";
+
+//     // Thực thi truy vấn
+//     if (mysqli_query($conn, $sql)) {
+//         // Nếu thêm thành công, bạn có thể thêm mã xử lý để hiển thị thông báo hoặc chuyển hướng người dùng
+//         echo "Thêm sản phẩm thành công!";
+//         // Hoặc chuyển hướng về trang danh sách sản phẩm sau khi thêm thành công
+//         // header("Location: http://localhost/Duan1/Admin/product.php");
+//     } else {
+//         // Nếu có lỗi xảy ra trong quá trình thêm, bạn có thể hiển thị thông báo hoặc xử lý lỗi ở đây
+//         echo "Lỗi: " . mysqli_error($conn);
+//     }
+// }
 
 // Hàm sửa thông tin sản phẩm
 function editProduct($conn, $product_id, $category_id, $title, $price, $old_price, $thumbnail, $description)
