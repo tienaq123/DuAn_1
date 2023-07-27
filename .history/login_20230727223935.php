@@ -134,11 +134,7 @@ if (isset($_POST["login_submit"])) {
       $_SESSION["role_id"] = $user["role_id"];
 
       // Chuyển hướng đến trang chủ hoặc trang sau khi đăng nhập thành công
-      if ($user["role_id"] == 1) {
-        header("Location: admin"); // Trang admin
-      } else {
-        header("Location: index.php"); // Trang home
-      }
+      header("Location: index.php");
       exit();
     } else {
       // Mật khẩu không đúng, hiển thị thông báo lỗi
@@ -194,7 +190,22 @@ elseif (isset($_POST["register_submit"])) {
   mysqli_close($conn);
 }
 ?>
+<?php
+// Mật khẩu không mã hóa
+$password = 'tiena';
 
+// Mật khẩu đã mã hóa
+$hashed_password = 'tiena';
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+
+// Kiểm tra khớp mật khẩu
+if (password_verify($password, $hashed_password)) {
+  echo "Mật khẩu khớp!";
+} else {
+  echo "Mật khẩu không khớp!";
+}
+?>
 <!-- PHP Login -->
 
 </html>

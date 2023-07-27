@@ -135,7 +135,7 @@ if (isset($_POST["login_submit"])) {
 
       // Chuyển hướng đến trang chủ hoặc trang sau khi đăng nhập thành công
       if ($user["role_id"] == 1) {
-        header("Location: admin"); // Trang admin
+        header("Location: admin/index.php"); // Trang admin
       } else {
         header("Location: index.php"); // Trang home
       }

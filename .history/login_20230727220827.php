@@ -109,8 +109,6 @@
 if (isset($_POST["login_submit"])) {
   $email = $_POST["email"];
   $password = $_POST["password"];
-  echo "Email: " . $email . "<br>";
-  echo "Password: " . $password . "<br>";
 
   // Kiểm tra thông tin đăng nhập
   $query_login = "SELECT * FROM User WHERE email = '$email' AND deleted = 0";
@@ -120,13 +118,10 @@ if (isset($_POST["login_submit"])) {
     // Lấy thông tin người dùng từ CSDL
     $user = mysqli_fetch_assoc($result_login);
     $hashed_password = $user["password"];
-
-    // var_dump($password);
-    // var_dump($hashed_password);
-    // var_dump(password_verify($password, $hashed_password));
+    var_dump($password, $hashed_password);
 
     // Xác minh mật khẩu
-    if (password_verify($password, $hashed_password)) {
+    if (password_verify($hashed_password)) {
       // Mật khẩu đúng, đăng nhập thành công
       // Lưu thông tin người dùng vào session
       $_SESSION["user_id"] = $user["id"];
@@ -134,11 +129,7 @@ if (isset($_POST["login_submit"])) {
       $_SESSION["role_id"] = $user["role_id"];
 
       // Chuyển hướng đến trang chủ hoặc trang sau khi đăng nhập thành công
-      if ($user["role_id"] == 1) {
-        header("Location: admin"); // Trang admin
-      } else {
-        header("Location: index.php"); // Trang home
-      }
+      header("Location: index.php");
       exit();
     } else {
       // Mật khẩu không đúng, hiển thị thông báo lỗi
@@ -194,7 +185,6 @@ elseif (isset($_POST["register_submit"])) {
   mysqli_close($conn);
 }
 ?>
-
 <!-- PHP Login -->
 
 </html>

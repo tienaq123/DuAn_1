@@ -55,44 +55,45 @@
 
       <!-- Register -->
       <div class="form-box register">
-        <h2>Registration</h2>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <h2 style="padding-top: 20px;">Registration</h2>
+        <form action="#">
           <div class="input-box">
             <span class="icon"><i class="bx bxs-user"></i></span>
-            <input type="text" name="username" required />
+            <input type="text" required />
             <label for="">Username</label>
           </div>
           <div class="input-box">
             <span class="icon"><i class="bx bxs-envelope"></i></span>
-            <input type="email" name="email" required />
+            <input type="" required />
             <label for="">Email</label>
           </div>
           <div class="input-box">
             <span class="icon"><i class="bx bxs-envelope"></i></span>
-            <input type="text" name="phone_number" required />
+            <input type="number" required />
             <label for="">Phone number</label>
           </div>
           <div class="input-box">
             <span class="icon"><i class="bx bxs-envelope"></i></span>
-            <input type="text" name="address" required />
+            <input type="text" required />
             <label for="">Address</label>
           </div>
           <div class="input-box">
             <span class="icon"><i class="bx bxs-lock-alt"></i></span>
-            <input type="password" name="password" required />
+            <input type="password" required />
             <label for="">Password</label>
           </div>
 
           <div class="remember-forgot">
-            <label for=""><input type="checkbox" name="agree_terms" required />&nbsp;Agree to the terms & conditions</label>
+            <label for=""><input type="checkbox" />&nbsp;Agree to the terms &
+              conditions</label>
           </div>
 
-          <button type="submit" name="register_submit" class="btn">Register</button>
+          <button type="submit" class="btn">Register</button>
 
-          <div class="login-register">
+          <div style="padding-bottom: 20px;" class="login-register">
             <p>
               Already have an account?
-              <span class="login-link">Login</span>
+              <span href="" class="login-link">Login</span>
             </p>
           </div>
         </form>
@@ -107,54 +108,32 @@
 
 // Kiểm tra xem người dùng đã nhấn nút "Login" chưa
 if (isset($_POST["login_submit"])) {
-  $email = $_POST["email"];
-  $password = $_POST["password"];
-  echo "Email: " . $email . "<br>";
-  echo "Password: " . $password . "<br>";
+  $email = $_POST['email'];
+  $password = $_POST['password'];
 
-  // Kiểm tra thông tin đăng nhập
-  $query_login = "SELECT * FROM User WHERE email = '$email' AND deleted = 0";
-  $result_login = mysqli_query($conn, $query_login);
+  // Xử lý truy vấn kiểm tra thông tin đăng nhập
+  $sql = "SELECT * FROM User WHERE email = '$email' AND password = '$password' AND deleted = 0";
+  $result = mysqli_query($conn, $sql);
 
-  if (mysqli_num_rows($result_login) == 1) {
-    // Lấy thông tin người dùng từ CSDL
-    $user = mysqli_fetch_assoc($result_login);
-    $hashed_password = $user["password"];
+  if (mysqli_num_rows($result) > 0) {
+    // Thông tin đăng nhập chính xác, lưu thông tin vào session
+    $user = mysqli_fetch_assoc($result);
+    $_SESSION['user_id'] = $user['id'];
+    $_SESSION['fullname'] = $user['fullname'];
+    $_SESSION['role_id'] = $user['role_id'];
 
-    // var_dump($password);
-    // var_dump($hashed_password);
-    // var_dump(password_verify($password, $hashed_password));
-
-    // Xác minh mật khẩu
-    if (password_verify($password, $hashed_password)) {
-      // Mật khẩu đúng, đăng nhập thành công
-      // Lưu thông tin người dùng vào session
-      $_SESSION["user_id"] = $user["id"];
-      $_SESSION["username"] = $user["fullname"];
-      $_SESSION["role_id"] = $user["role_id"];
-
-      // Chuyển hướng đến trang chủ hoặc trang sau khi đăng nhập thành công
-      if ($user["role_id"] == 1) {
-        header("Location: admin"); // Trang admin
-      } else {
-        header("Location: index.php"); // Trang home
-      }
-      exit();
+    // Điều hướng tới trang chính hoặc trang dashboard (tùy thuộc vào quyền hạn)
+    if ($user['role_id'] == 1) {
+      header("Location: Admin");
     } else {
-      // Mật khẩu không đúng, hiển thị thông báo lỗi
-      echo "Invalid email or password";
+      header("Location: index.php");
     }
+    exit();
   } else {
-    // Người dùng không tồn tại hoặc bị xóa, hiển thị thông báo lỗi
-    echo "Invalid email or password false";
+    // Thông tin đăng nhập không chính xác, hiển thị thông báo lỗi
+    echo "Invalid credentials!";
   }
-
-  // Đóng kết nối CSDL
-  mysqli_close($conn);
-}
-
-// Xử lí đăng ký
-elseif (isset($_POST["register_submit"])) {
+} elseif (isset($_POST["register_submit"])) {
   // Xử lý đăng ký
   // Lấy thông tin từ form đăng ký
   $username = $_POST["username"];
@@ -194,7 +173,6 @@ elseif (isset($_POST["register_submit"])) {
   mysqli_close($conn);
 }
 ?>
-
 <!-- PHP Login -->
 
 </html>

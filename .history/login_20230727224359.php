@@ -134,11 +134,7 @@ if (isset($_POST["login_submit"])) {
       $_SESSION["role_id"] = $user["role_id"];
 
       // Chuyển hướng đến trang chủ hoặc trang sau khi đăng nhập thành công
-      if ($user["role_id"] == 1) {
-        header("Location: admin"); // Trang admin
-      } else {
-        header("Location: index.php"); // Trang home
-      }
+      header("Location: index.php");
       exit();
     } else {
       // Mật khẩu không đúng, hiển thị thông báo lỗi
@@ -176,13 +172,16 @@ elseif (isset($_POST["register_submit"])) {
     // Thực hiện đăng ký người dùng
     $role_id = 2; // Gán mặc định role_id = 2 cho người dùng (user)
     $hashed_password = password_hash($password, PASSWORD_DEFAULT); // Mã hóa mật khẩu trước khi lưu vào CSDL
+    var_dump($password);
+    var_dump($hashed_password);
 
     $query_register = "INSERT INTO User (fullname, email, phone_number, address, password, role_id, created_at, updated_at, deleted)
                          VALUES ('$username', '$email', '$phone_number', '$address', '$hashed_password', $role_id, NOW(), NOW(), 0)";
 
     if (mysqli_query($conn, $query_register)) {
       // Đăng ký thành công, chuyển hướng đến trang đăng nhập
-      header("Location: login.php");
+      // header("Location: login.php");
+      echo "done";
       exit();
     } else {
       // Lỗi đăng ký, hiển thị thông báo lỗi
@@ -194,7 +193,22 @@ elseif (isset($_POST["register_submit"])) {
   mysqli_close($conn);
 }
 ?>
+<?php
+// Mật khẩu không mã hóa
+// $password = 'tiena';
+// $password1 = 'tiena';
 
+// // Mật khẩu đã mã hóa
+// $hashed_password = password_hash($password1, PASSWORD_DEFAULT);
+
+// var_dump($hashed_password);
+// // Kiểm tra khớp mật khẩu
+// if (password_verify($password, $hashed_password)) {
+//   echo "Mật khẩu khớp!";
+// } else {
+//   echo "Mật khẩu không khớp!";
+// }
+?>
 <!-- PHP Login -->
 
 </html>

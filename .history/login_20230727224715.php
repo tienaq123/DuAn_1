@@ -134,11 +134,7 @@ if (isset($_POST["login_submit"])) {
       $_SESSION["role_id"] = $user["role_id"];
 
       // Chuyển hướng đến trang chủ hoặc trang sau khi đăng nhập thành công
-      if ($user["role_id"] == 1) {
-        header("Location: admin"); // Trang admin
-      } else {
-        header("Location: index.php"); // Trang home
-      }
+      header("Location: index.php");
       exit();
     } else {
       // Mật khẩu không đúng, hiển thị thông báo lỗi
