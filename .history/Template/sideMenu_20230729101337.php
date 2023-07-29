@@ -71,7 +71,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="user.php" class="group rounded-md relative text-black text-lg font-medium inline-flex items-center w-full transition-colors ease-in-out duration-300 px-5 py-[9px] mb-3 hover:bg-gray sidebar-link-active">
+                    <a href="order-list.php" class="group rounded-md relative text-black text-lg font-medium inline-flex items-center w-full transition-colors ease-in-out duration-300 px-5 py-[9px] mb-3 hover:bg-gray sidebar-link-active">
                         <span class="inline-block translate-y-[1px] mr-[10px] text-xl">
                             <box-icon style="font-size: 5px;" name='user'></box-icon>
                         </span>
