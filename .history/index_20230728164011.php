@@ -443,7 +443,7 @@
 
                 <!-- Category SQL -->
                 <li class="yellow">
-                  <a href="#filter" data-option-value=".<?php echo str_replace(' ', '', $category['name']) ?>"><?php echo $category['name'] ?></a>
+                  <a href="#filter" data-option-value="<?php echo $category['name'] ?>"><?php echo $category['name'] ?></a>
                 </li>
             <?php
               }
@@ -492,7 +492,7 @@
             <!-- Get product SQL -->
 
             <!--element-->
-            <div style="min-height: 420px; border: 1px solid #eaeaea;" class="element <?php echo str_replace(' ', '', $row['category_name']) ?> " data-category="<?php echo str_replace(' ', '', $row['category_name']) ?>">
+            <div style="min-height: 420px; border: 1px solid #eaeaea;" class="element  $row['category_name']" data-category=" $row['category_name']">
               <a data-rel="prettyPhoto[]" href="<?php echo $row['thumbnail'] ?>">
                 <img style="margin-top: 0;" alt="" class="imgwork" src="<?php echo $row['thumbnail'] ?>" />
               </a>

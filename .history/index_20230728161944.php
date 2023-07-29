@@ -425,33 +425,16 @@
       <!--end title section-->
 
       <!--start options-->
-
       <div class="grid_12">
         <div id="options" class="clear">
           <ul id="filters" class="option-set clearfix" data-option-key="filter">
-
             <li class="orange">
               <a href="#filter" data-option-value="*  " class="selected">Show all</a>
             </li>
-            <!-- Category SQL -->
-            <?php
-            $query_categories = "SELECT * FROM Category WHERE deleted = 0";
-            $result_categories = mysqli_query($conn, $query_categories);
-            if (mysqli_num_rows($result_categories) > 0) {
-              while ($category = mysqli_fetch_assoc($result_categories)) {
-            ?>
-
-                <!-- Category SQL -->
-                <li class="yellow">
-                  <a href="#filter" data-option-value=".<?php echo str_replace(' ', '', $category['name']) ?>"><?php echo $category['name'] ?></a>
-                </li>
-            <?php
-              }
-            } else {
-              echo "No categories found.";
-            }
-            ?>
-            <!-- <li class="yellow">
+            <li class="blue">
+              <a href="#filter" data-option-value=".blue">Cupkakes</a>
+            </li>
+            <li class="yellow">
               <a href="#filter" data-option-value=".yellow">Cake Design</a>
             </li>
             <li class="navi">
@@ -459,7 +442,7 @@
             </li>
             <li class="green">
               <a href="#filter" data-option-value=".yellow">Dounuts</a>
-            </li> -->
+            </li>
           </ul>
         </div>
       </div>
@@ -470,10 +453,10 @@
         <!-- Get product SQL -->
         <?php
         // Lấy số lượng sản phẩm hiển thị trên mỗi trang (mặc định là 12 sản phẩm)
-        $products_per_page = 30;
+        $products_per_page = isset($_GET['per_page']) ? intval($_GET['per_page']) : 12;
 
         // Lấy trang hiện tại (mặc định là trang đầu tiên)
-        $current_page =  1;
+        $current_page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 
         // Tính vị trí bắt đầu của sản phẩm trong CSDL
         $start_index = ($current_page - 1) * $products_per_page;
@@ -492,7 +475,7 @@
             <!-- Get product SQL -->
 
             <!--element-->
-            <div style="min-height: 420px; border: 1px solid #eaeaea;" class="element <?php echo str_replace(' ', '', $row['category_name']) ?> " data-category="<?php echo str_replace(' ', '', $row['category_name']) ?>">
+            <div style="min-height: 420px; border: 1px solid #eaeaea;" class="element blue" data-category="blue">
               <a data-rel="prettyPhoto[]" href="<?php echo $row['thumbnail'] ?>">
                 <img style="margin-top: 0;" alt="" class="imgwork" src="<?php echo $row['thumbnail'] ?>" />
               </a>
@@ -503,10 +486,15 @@
 
               <div class="worksbottom"></div>
             </div>
-
             <!--element-->
         <?php
           }
+          // Kiểm tra xem có sản phẩm tiếp theo hay không
+          $next_start_index = $start_index + $products_per_page;
+          $query_next_page = "SELECT id FROM Product WHERE deleted = 0 LIMIT 1 OFFSET $next_start_index";
+          $result_next_page = mysqli_query($conn, $query_next_page);
+          // Nếu số lượng sản phẩm trả về từ câu truy vấn lấy sản phẩm tiếp theo lớn hơn 0, có sản phẩm tiếp theo
+          $has_next_page = mysqli_num_rows($result_next_page) > 0;
         } else {
           echo "No products found.";
           $has_next_page = false;
@@ -514,7 +502,13 @@
         ?>
 
       </div>
-
+      <?php if ($has_next_page) : ?>
+        <form id="loadMoreForm" method="GET">
+          <input type="hidden" name="page" value="<?php echo $current_page + 1; ?>">
+          <input type="hidden" name="per_page" value="30"> <!-- Số lượng sản phẩm mới -->
+          <button type="submit" form="loadMoreForm">Xem thêm</button>
+        </form>
+      <?php endif; ?>
     </div>
     <!--end container-->
   </section>

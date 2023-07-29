@@ -137,11 +137,11 @@ if (isset($_POST["login_submit"])) {
       exit();
     } else {
       // Mật khẩu không đúng, hiển thị thông báo lỗi
-      echo "Invalid email or password !";
+      echo " <br> Invalid email or password";
     }
   } else {
     // Người dùng không tồn tại hoặc bị xóa, hiển thị thông báo lỗi
-    echo "Invalid email or password false !";
+    echo " <br> Invalid email or password false";
   }
 
   // Đóng kết nối CSDL

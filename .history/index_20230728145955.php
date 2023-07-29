@@ -45,22 +45,6 @@
   <link rel="apple-touch-icon" sizes="114x114" href="./Public/img/favicon/apple-touch-icon-114x114.png" />
   <!--END FAVICONS-->
 </head>
-<style>
-  .product-list .product-item:not(:nth-child(-n+8)) {
-    display: none;
-  }
-
-  /* Hiển thị nút "Next" và "Prev" */
-  #btnNext,
-  #btnPrev {
-    display: block;
-  }
-
-  /* Ẩn nút "Prev" khi đang ở trang đầu tiên */
-  #btnPrev[data-page="1"] {
-    display: none;
-  }
-</style>
 
 <body>
   <!--start navigationmenu-->
@@ -425,33 +409,16 @@
       <!--end title section-->
 
       <!--start options-->
-
       <div class="grid_12">
         <div id="options" class="clear">
           <ul id="filters" class="option-set clearfix" data-option-key="filter">
-
             <li class="orange">
               <a href="#filter" data-option-value="*  " class="selected">Show all</a>
             </li>
-            <!-- Category SQL -->
-            <?php
-            $query_categories = "SELECT * FROM Category WHERE deleted = 0";
-            $result_categories = mysqli_query($conn, $query_categories);
-            if (mysqli_num_rows($result_categories) > 0) {
-              while ($category = mysqli_fetch_assoc($result_categories)) {
-            ?>
-
-                <!-- Category SQL -->
-                <li class="yellow">
-                  <a href="#filter" data-option-value=".<?php echo str_replace(' ', '', $category['name']) ?>"><?php echo $category['name'] ?></a>
-                </li>
-            <?php
-              }
-            } else {
-              echo "No categories found.";
-            }
-            ?>
-            <!-- <li class="yellow">
+            <li class="blue">
+              <a href="#filter" data-option-value=".blue">Cupkakes</a>
+            </li>
+            <li class="yellow">
               <a href="#filter" data-option-value=".yellow">Cake Design</a>
             </li>
             <li class="navi">
@@ -459,62 +426,16 @@
             </li>
             <li class="green">
               <a href="#filter" data-option-value=".yellow">Dounuts</a>
-            </li> -->
+            </li>
           </ul>
         </div>
       </div>
       <!--end options-->
 
       <!--start images-->
-      <div id="containerisotope" class="clear">
-        <!-- Get product SQL -->
-        <?php
-        // Lấy số lượng sản phẩm hiển thị trên mỗi trang (mặc định là 12 sản phẩm)
-        $products_per_page = 30;
 
-        // Lấy trang hiện tại (mặc định là trang đầu tiên)
-        $current_page =  1;
 
-        // Tính vị trí bắt đầu của sản phẩm trong CSDL
-        $start_index = ($current_page - 1) * $products_per_page;
-
-        // Truy vấn lấy thông tin sản phẩm với số lượng giới hạn và vị trí bắt đầu
-        $query_products = "SELECT p.id, p.title, p.price, p.thumbnail, c.name AS category_name
-               FROM Product p
-               JOIN Category c ON p.category_id = c.id
-               WHERE p.deleted = 0
-               LIMIT $start_index, $products_per_page";
-
-        $result_products = mysqli_query($conn, $query_products);
-        if (mysqli_num_rows($result_products) > 0) {
-          while ($row = mysqli_fetch_assoc($result_products)) {
-        ?>
-            <!-- Get product SQL -->
-
-            <!--element-->
-            <div style="min-height: 420px; border: 1px solid #eaeaea;" class="element <?php echo str_replace(' ', '', $row['category_name']) ?> " data-category="<?php echo str_replace(' ', '', $row['category_name']) ?>">
-              <a data-rel="prettyPhoto[]" href="<?php echo $row['thumbnail'] ?>">
-                <img style="margin-top: 0;" alt="" class="imgwork" src="<?php echo $row['thumbnail'] ?>" />
-              </a>
-              <a href="/Duan1/Pages/Detail/detail.php">
-                <h2 style="font-family: 'Lobster Two', cursive; font-size: 18px; text-align: start; margin-left: 10px; min-height: 50px;"><?php echo $row['title'] ?></h2>
-                <p style="font-family: 'Lobster Two', cursive; border: none; color: #7d7d7d; font-weight: bold; margin-left: 10px;"><?php echo number_format($row['price']) ?>đ</p>
-              </a>
-
-              <div class="worksbottom"></div>
-            </div>
-
-            <!--element-->
-        <?php
-          }
-        } else {
-          echo "No products found.";
-          $has_next_page = false;
-        }
-        ?>
-
-      </div>
-
+      <!--end images-->
     </div>
     <!--end container-->
   </section>
@@ -1055,9 +976,21 @@
   <!--My settings-->
   <!--End js-->
 
+  <!-- My word -->
+  <!-- <script>
+    const container = document.getElementById('containerisotope');
+    const btnNext = document.getElementById('btnNext');
 
+    let slideIndex = 0;
+    const productsPerPage = 8;
+    const productWidth = 250; // Độ rộng của mỗi sản phẩm
 
-
+    btnNext.addEventListener('click', () => {
+      slideIndex++;
+      const translateXValue = -slideIndex * (productsPerPage * productWidth);
+      container.style.transform = `translateX(${translateXValue}px)`;
+    });
+  </script> -->
   <!--google analytics-->
   <!-- <script>
     (function(i, s, o, g, r, a, m) {

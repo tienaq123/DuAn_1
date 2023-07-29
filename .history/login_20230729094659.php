@@ -109,6 +109,8 @@
 if (isset($_POST["login_submit"])) {
   $email = $_POST["email"];
   $password = $_POST["password"];
+  echo "Email: " . $email . "<br>";
+  echo "Password: " . $password . "<br>";
 
   // Kiểm tra thông tin đăng nhập
   $query_login = "SELECT * FROM User WHERE email = '$email' AND deleted = 0";
@@ -137,11 +139,11 @@ if (isset($_POST["login_submit"])) {
       exit();
     } else {
       // Mật khẩu không đúng, hiển thị thông báo lỗi
-      echo "Invalid email or password !";
+      echo "Invalid email or password";
     }
   } else {
     // Người dùng không tồn tại hoặc bị xóa, hiển thị thông báo lỗi
-    echo "Invalid email or password false !";
+    echo "Invalid email or password false";
   }
 
   // Đóng kết nối CSDL

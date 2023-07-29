@@ -435,15 +435,15 @@
             </li>
             <!-- Category SQL -->
             <?php
-            $query_categories = "SELECT * FROM Category WHERE deleted = 0";
+            $query_categories = "SELECT * FROM Category";
             $result_categories = mysqli_query($conn, $query_categories);
             if (mysqli_num_rows($result_categories) > 0) {
               while ($category = mysqli_fetch_assoc($result_categories)) {
             ?>
 
                 <!-- Category SQL -->
-                <li class="yellow">
-                  <a href="#filter" data-option-value=".<?php echo str_replace(' ', '', $category['name']) ?>"><?php echo $category['name'] ?></a>
+                <li class="blue">
+                  <a href="#filter" data-option-value="<?php echo $category['name'] ?>">Cupkakes</a>
                 </li>
             <?php
               }
@@ -492,7 +492,7 @@
             <!-- Get product SQL -->
 
             <!--element-->
-            <div style="min-height: 420px; border: 1px solid #eaeaea;" class="element <?php echo str_replace(' ', '', $row['category_name']) ?> " data-category="<?php echo str_replace(' ', '', $row['category_name']) ?>">
+            <div style="min-height: 420px; border: 1px solid #eaeaea;" class="element blue" data-category="blue">
               <a data-rel="prettyPhoto[]" href="<?php echo $row['thumbnail'] ?>">
                 <img style="margin-top: 0;" alt="" class="imgwork" src="<?php echo $row['thumbnail'] ?>" />
               </a>

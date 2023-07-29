@@ -443,7 +443,7 @@
 
                 <!-- Category SQL -->
                 <li class="yellow">
-                  <a href="#filter" data-option-value=".<?php echo str_replace(' ', '', $category['name']) ?>"><?php echo $category['name'] ?></a>
+                  <a href="#filter" data-option-value="<?php echo $category['name'] ?>"><?php echo $category['name'] ?></a>
                 </li>
             <?php
               }
@@ -498,6 +498,7 @@
               </a>
               <a href="/Duan1/Pages/Detail/detail.php">
                 <h2 style="font-family: 'Lobster Two', cursive; font-size: 18px; text-align: start; margin-left: 10px; min-height: 50px;"><?php echo $row['title'] ?></h2>
+                <h2 style="font-family: 'Lobster Two', cursive; font-size: 18px; text-align: start; margin-left: 10px; min-height: 50px;"><?php echo str_replace(' ', '', $row['category_name']) ?></h2>
                 <p style="font-family: 'Lobster Two', cursive; border: none; color: #7d7d7d; font-weight: bold; margin-left: 10px;"><?php echo number_format($row['price']) ?>đ</p>
               </a>
 

@@ -425,33 +425,16 @@
       <!--end title section-->
 
       <!--start options-->
-
       <div class="grid_12">
         <div id="options" class="clear">
           <ul id="filters" class="option-set clearfix" data-option-key="filter">
-
             <li class="orange">
               <a href="#filter" data-option-value="*  " class="selected">Show all</a>
             </li>
-            <!-- Category SQL -->
-            <?php
-            $query_categories = "SELECT * FROM Category WHERE deleted = 0";
-            $result_categories = mysqli_query($conn, $query_categories);
-            if (mysqli_num_rows($result_categories) > 0) {
-              while ($category = mysqli_fetch_assoc($result_categories)) {
-            ?>
-
-                <!-- Category SQL -->
-                <li class="yellow">
-                  <a href="#filter" data-option-value=".<?php echo str_replace(' ', '', $category['name']) ?>"><?php echo $category['name'] ?></a>
-                </li>
-            <?php
-              }
-            } else {
-              echo "No categories found.";
-            }
-            ?>
-            <!-- <li class="yellow">
+            <li class="blue">
+              <a href="#filter" data-option-value=".blue">Cupkakes</a>
+            </li>
+            <li class="yellow">
               <a href="#filter" data-option-value=".yellow">Cake Design</a>
             </li>
             <li class="navi">
@@ -459,7 +442,7 @@
             </li>
             <li class="green">
               <a href="#filter" data-option-value=".yellow">Dounuts</a>
-            </li> -->
+            </li>
           </ul>
         </div>
       </div>
@@ -469,21 +452,21 @@
       <div id="containerisotope" class="clear">
         <!-- Get product SQL -->
         <?php
-        // Lấy số lượng sản phẩm hiển thị trên mỗi trang (mặc định là 12 sản phẩm)
-        $products_per_page = 30;
+        // Lấy số lượng sản phẩm hiển thị trên mỗi trang (8 sản phẩm)
+        $products_per_page = 12;
 
         // Lấy trang hiện tại (mặc định là trang đầu tiên)
-        $current_page =  1;
+        $current_page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 
         // Tính vị trí bắt đầu của sản phẩm trong CSDL
         $start_index = ($current_page - 1) * $products_per_page;
 
         // Truy vấn lấy thông tin sản phẩm với số lượng giới hạn và vị trí bắt đầu
         $query_products = "SELECT p.id, p.title, p.price, p.thumbnail, c.name AS category_name
-               FROM Product p
-               JOIN Category c ON p.category_id = c.id
-               WHERE p.deleted = 0
-               LIMIT $start_index, $products_per_page";
+                     FROM Product p
+                     JOIN Category c ON p.category_id = c.id
+                     WHERE p.deleted = 0
+                     LIMIT $start_index, $products_per_page";
 
         $result_products = mysqli_query($conn, $query_products);
         if (mysqli_num_rows($result_products) > 0) {
@@ -492,7 +475,7 @@
             <!-- Get product SQL -->
 
             <!--element-->
-            <div style="min-height: 420px; border: 1px solid #eaeaea;" class="element <?php echo str_replace(' ', '', $row['category_name']) ?> " data-category="<?php echo str_replace(' ', '', $row['category_name']) ?>">
+            <div style="min-height: 420px; border: 1px solid #eaeaea;" class="element blue" data-category="blue">
               <a data-rel="prettyPhoto[]" href="<?php echo $row['thumbnail'] ?>">
                 <img style="margin-top: 0;" alt="" class="imgwork" src="<?php echo $row['thumbnail'] ?>" />
               </a>
@@ -507,6 +490,12 @@
             <!--element-->
         <?php
           }
+          // Kiểm tra xem có sản phẩm tiếp theo hay không
+          $next_start_index = $start_index + $products_per_page;
+          $query_next_page = "SELECT id FROM Product WHERE deleted = 0 LIMIT 1 OFFSET $next_start_index";
+          $result_next_page = mysqli_query($conn, $query_next_page);
+          // Nếu số lượng sản phẩm trả về từ câu truy vấn lấy sản phẩm tiếp theo lớn hơn 0, có sản phẩm tiếp theo
+          $has_next_page = mysqli_num_rows($result_next_page) > 0;
         } else {
           echo "No products found.";
           $has_next_page = false;
@@ -514,7 +503,9 @@
         ?>
 
       </div>
-
+      <?php if ($has_next_page) : ?>
+        <button id="btnLoadMore">Xem thêm</button>
+      <?php endif; ?>
     </div>
     <!--end container-->
   </section>
@@ -1055,8 +1046,32 @@
   <!--My settings-->
   <!--End js-->
 
-
-
+  <!-- My word -->
+  <script>
+    // Xử lý sự kiện khi người dùng click vào nút "Xem thêm"
+    $("#btnLoadMore").on("click", function() {
+      // Thực hiện truy vấn Ajax để lấy tất cả sản phẩm từ CSDL và hiển thị chúng
+      $.ajax({
+        type: "GET",
+        url: window.location.href, // Gửi truy vấn Ajax đến cùng địa chỉ URL hiện tại
+        data: {
+          page: <?php echo $current_page + 1; ?>
+        }, // Truyền số trang tiếp theo qua tham số GET
+        success: function(response) {
+          // Xử lý kết quả trả về từ server
+          $("#containerisotope").append(response); // Thêm danh sách sản phẩm mới vào container
+          <?php $current_page++; ?> // Tăng số trang hiện tại để chuẩn bị cho lần click tiếp theo
+          <?php if (!$has_next_page) : ?> // Ẩn nút "Xem thêm" nếu không còn sản phẩm
+            $("#btnLoadMore").hide();
+          <?php endif; ?>
+        },
+        error: function() {
+          // Xử lý lỗi (nếu có)
+          alert("Đã xảy ra lỗi khi tải sản phẩm. Vui lòng thử lại sau.");
+        }
+      });
+    });
+  </script>
 
   <!--google analytics-->
   <!-- <script>

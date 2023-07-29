@@ -1,0 +1,17 @@
+Authentication (Đăng nhập và phân quyền): Tiếp tục xây dựng phần đăng nhập và xác thực người dùng theo role. Điều này giúp bảo vệ dự án của bạn và giới hạn quyền truy cập của người dùng dựa trên vai trò của họ.
+
+Thêm xóa sản phẩm vào giỏ hàng: Xây dựng chức năng thêm sản phẩm vào giỏ hàng và xóa sản phẩm khỏi giỏ hàng. Đảm bảo giỏ hàng được lưu trữ cho mỗi người dùng và có thể được hiển thị trên nhiều trang.
+
+Luồng mua hàng: Xây dựng toàn bộ luồng mua hàng từ đặt hàng, xem giỏ hàng, địa chỉ giao hàng, thanh toán và xác nhận đơn hàng. Điều này bao gồm xử lý các thông tin của khách hàng và cập nhật cơ sở dữ liệu với đơn hàng đã được đặt.
+
+Trang xem chi tiết đơn hàng: Xây dựng trang chi tiết đơn hàng để hiển thị thông tin về đơn hàng, thông tin khách hàng và danh sách sản phẩm đã mua trong đơn hàng đó.
+
+Tối ưu hoá và kiểm tra: Kiểm tra và tối ưu lại mã code của bạn để đảm bảo hiệu năng và bảo mật tốt nhất. Thử nghiệm ứng dụng của bạn trên nhiều trình duyệt và thiết bị để đảm bảo nó hoạt động mượt mà và đáp ứng tốt trên mọi nền tảng.
+
+Tùy chỉnh và cải tiến: Dựa vào phản hồi của người dùng và các yêu cầu mới, tiến hành tùy chỉnh và cải tiến dự án của bạn để nâng cao trải nghiệm người dùng và tính năng của ứng dụng.
+
+Lưu ý rằng, đôi khi việc thực hiện các chức năng cùng một lúc có thể tốn nhiều thời gian và dễ gây ra lỗi. Hãy tập trung vào từng bước một và hoàn thiện chúng trước khi chuyển sang bước tiếp theo.
+
+Ngoài ra, hãy đảm bảo bạn luôn backup dự án của mình và thường xuyên commit code vào hệ thống quản lý phiên bản (VCS) để tránh mất dữ liệu và có thể dễ dàng quay lại các phiên bản trước đó nếu cần.
+
+Chúc bạn thành công và vui vẻ trong việc phát triển dự án của mình!

@@ -1050,9 +1050,9 @@ nav a:hover {
 /* New CSS */
 #containerisotope {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   width: 100%; /* Đảm bảo containerisotope chiếm đủ chiều rộng của trang */
-  overflow: hidden; /* Ẩn đi các sản phẩm còn lại vượt ra ngoài phạm vi của container */
+
   transition: transform 0.3s ease; /* Thêm hiệu ứng trượt mượt khi sử dụng transform */
 }
 

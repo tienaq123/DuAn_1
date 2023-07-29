@@ -425,33 +425,16 @@
       <!--end title section-->
 
       <!--start options-->
-
       <div class="grid_12">
         <div id="options" class="clear">
           <ul id="filters" class="option-set clearfix" data-option-key="filter">
-
             <li class="orange">
               <a href="#filter" data-option-value="*  " class="selected">Show all</a>
             </li>
-            <!-- Category SQL -->
-            <?php
-            $query_categories = "SELECT * FROM Category WHERE deleted = 0";
-            $result_categories = mysqli_query($conn, $query_categories);
-            if (mysqli_num_rows($result_categories) > 0) {
-              while ($category = mysqli_fetch_assoc($result_categories)) {
-            ?>
-
-                <!-- Category SQL -->
-                <li class="yellow">
-                  <a href="#filter" data-option-value=".<?php echo str_replace(' ', '', $category['name']) ?>"><?php echo $category['name'] ?></a>
-                </li>
-            <?php
-              }
-            } else {
-              echo "No categories found.";
-            }
-            ?>
-            <!-- <li class="yellow">
+            <li class="blue">
+              <a href="#filter" data-option-value=".blue">Cupkakes</a>
+            </li>
+            <li class="yellow">
               <a href="#filter" data-option-value=".yellow">Cake Design</a>
             </li>
             <li class="navi">
@@ -459,7 +442,7 @@
             </li>
             <li class="green">
               <a href="#filter" data-option-value=".yellow">Dounuts</a>
-            </li> -->
+            </li>
           </ul>
         </div>
       </div>
@@ -492,7 +475,7 @@
             <!-- Get product SQL -->
 
             <!--element-->
-            <div style="min-height: 420px; border: 1px solid #eaeaea;" class="element <?php echo str_replace(' ', '', $row['category_name']) ?> " data-category="<?php echo str_replace(' ', '', $row['category_name']) ?>">
+            <div style="min-height: 420px; border: 1px solid #eaeaea;" class="element blue" data-category="blue">
               <a data-rel="prettyPhoto[]" href="<?php echo $row['thumbnail'] ?>">
                 <img style="margin-top: 0;" alt="" class="imgwork" src="<?php echo $row['thumbnail'] ?>" />
               </a>
@@ -503,7 +486,18 @@
 
               <div class="worksbottom"></div>
             </div>
+            <!-- dfsdfsdfs -->
+            <div style="min-height: 420px; border: 1px solid #eaeaea;" class="element yellow" data-category="yellow">
+              <a data-rel="prettyPhoto[]" href="<?php echo $row['thumbnail'] ?>">
+                <img style="margin-top: 0;" alt="" class="imgwork" src="<?php echo $row['thumbnail'] ?>" />
+              </a>
+              <a href="/Duan1/Pages/Detail/detail.php">
+                <h2 style="font-family: 'Lobster Two', cursive; font-size: 18px; text-align: start; margin-left: 10px; min-height: 50px;"><?php echo $row['title'] ?></h2>
+                <p style="font-family: 'Lobster Two', cursive; border: none; color: #7d7d7d; font-weight: bold; margin-left: 10px;"><?php echo number_format($row['price']) ?>đ</p>
+              </a>
 
+              <div class="worksbottom"></div>
+            </div>
             <!--element-->
         <?php
           }
