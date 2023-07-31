@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label id="pro" data-price="1950">IP 9</label>
+    <input type="number" name="" id="qty">
+    <button onclick="calculateAmount()">ok</button>
+    <hr>
+    <h3>Name: <span id="name">?</span></h3>
+    <h3>Amount: <span id="amount">?</span></h3>
+    <script>
+        function display() {
+            const productName = document.getElementById('pro').innerText;
+            const productPrice = parseInt(document.getElementById('pro').getAttribute('data-price'));
+            const quantity = parseInt(document.getElementById('qty').value);
+            const totalAmount = productPrice * quantity;
+            document.getElementById('name').innerText = productName;
+            document.getElementById('amount').innerText = totalAmount;
+        }
+    </script>
+</body>
+
+
+</html>

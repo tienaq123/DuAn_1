@@ -1,0 +1,88 @@
+#main {
+  padding-top: 150px;
+}
+
+.container {
+  padding-top: 150px;
+}
+
+.container-item {
+  display: flex;
+}
+.directional {
+  margin-bottom: 50px;
+}
+.directional span a {
+  color: #7d7d7d;
+}
+
+.container-item .img .small_img img {
+  width: 136px;
+}
+
+/*  */
+.detail {
+  margin-left: 50px;
+}
+
+.detail h2 {
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+
+.price_detail {
+  margin: 40px 0;
+}
+
+.new_price {
+  font-size: 35px;
+}
+
+.btn_buy {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn_buy .buy {
+  font-family: "Nunito";
+  cursor: pointer;
+  background: #ffb0bd;
+  width: 230px;
+  height: 48px;
+  border-radius: 5px;
+  color: #fff;
+  margin-top: 40px;
+  border: none;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Desc */
+.desc {
+  margin-top: 100px;
+}
+
+.desc h2 {
+  font-size: 32px;
+  margin-bottom: 22px;
+}
+
+.desc p {
+  line-height: 30px;
+  font-family: "Nunito";
+}
+
+/* related products */
+.related {
+  margin-top: 100px;
+}
+
+.related > h2 {
+  font-size: 32px;
+  margin-bottom: 22px;
+}
+
+.related .related-box {
+  display: flex;
+  flex-wrap: wrap;
+}
