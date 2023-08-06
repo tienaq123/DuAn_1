@@ -353,7 +353,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_to_cart']) && $_P
   $product_quantity = $_POST['product_quantity'];
   if (!isset($_SESSION['user_id'])) {
     // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập và lưu trang sản phẩm vào session để chuyển hướng lại sau khi đăng nhập thành công
-    $_SESSION['redirect_url'] = $_SERVER['REQUEST_URI'];
+    // $_SESSION['redirect_url'] = $_SERVER['REQUEST_URI'];
+    // $_SESSION['cart_gues'] = array();
+    $_SESSION['cart_gues'][] = array(
+      'id' => $product_id,
+      'title' => $product_title,
+      'price' => $product_price,
+      'thumbnail' => $product_thumbnail,
+      'quantity' => $product_quantity
+    );
     header('Location: ../../login.php');
     exit;
   }

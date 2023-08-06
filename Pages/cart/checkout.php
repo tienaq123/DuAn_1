@@ -183,19 +183,7 @@
             <input type="number" name="dienThoai" class="no-spinners" placeholder="Điện thoại *" value="<?php echo $phone_number_input_value ?>" />
             <input type="email" name="email" placeholder="Email *" value="<?php echo $email_input_value ?>" />
             <input type="text" name="diaChiChiTiet" placeholder="Địa chỉ chi tiết *" value="<?php echo $address_input_value ?>" />
-            <!-- select -->
-            <select name="tinhThanh" class="form-select form-select-sm mb-3" id="city" aria-label=".form-select-sm">
-              <option value="" selected>Chọn tỉnh thành</option>
-            </select>
 
-            <select name="quanHuyen" class="form-select form-select-sm mb-3" id="district" aria-label=".form-select-sm">
-              <option value="" selected>Chọn quận huyện</option>
-            </select>
-
-            <select name="phuongXa" class="form-select form-select-sm" id="ward" aria-label=".form-select-sm">
-              <option value="" selected>Chọn phường xã</option>
-            </select>
-            <!-- End select -->
             <textarea name="ghiChu" id="" cols="30" rows="10" placeholder="Ghi chú"></textarea>
           </div>
           <div class="cart">
@@ -251,7 +239,7 @@
               <div class="input-group">
                 <input type="text" id="coupon" name="couponCode" class="form-control" placeholder="Mã giảm giá" />
                 <div class="input-group-btn">
-                  <button class="btn btn-pink" id="getCoupon" type="button">
+                  <button class="btn btn-pink" id="getCoupon" type="button" disabled>
                     Áp dụng
                   </button>
                 </div>
@@ -288,7 +276,7 @@
 
 
   <!-- Select -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
   <script>
     var citis = document.getElementById("city");
     var districts = document.getElementById("district");
@@ -340,7 +328,7 @@
       var creditCardForm = document.getElementById("creditCardForm");
       creditCardForm.style.display = show ? "block" : "none";
     }
-  </script>
+  </script> -->
 
   <!--End js-->
 </body>

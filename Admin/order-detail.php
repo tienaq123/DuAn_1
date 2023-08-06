@@ -102,6 +102,21 @@ $conn = connectToDatabase();
                 <div class="search-select mr-3 flex items-center space-x-3">
                   <span class="text-tiny inline-block leading-none -translate-y-[2px]">Change Status :</span>
                   <select name="order_status">
+                    <?php $currentStatus = $order_row['status'];
+                    $orderStatuses = array("Pending", "Confirmed", "Delivery", "Completed", "Order canceled"); ?>
+                    <?php
+                    // Hiển thị các tùy chọn trạng thái và kiểm tra xem trạng thái hiện tại có trùng khớp với tùy chọn nào hay không
+                    foreach ($orderStatuses as $status) {
+                      $selected = ($status === $currentStatus) ? "selected" : "";
+                      echo "<option value='$status' $selected>$status</option>";
+                    }
+                    ?>
+                  </select>
+                </div>
+                <!-- <div class="search-select mr-3 flex items-center space-x-3">
+                  <span class="text-tiny inline-block leading-none -translate-y-[2px]">Change Status :</span>
+                  <select name="order_status">
+                    <?php $orderStatuses = array("Pending", "Confirmed", "Delivery", "Completed", "Order canceled"); ?>
                     <option value="<?php echo $order_row['status'] ?>" selected><?php echo $order_row['status'] ?></option>
                     <option value="Pending">Pending</option>
                     <option value="Confirmed">Confirmed</option>
@@ -109,7 +124,7 @@ $conn = connectToDatabase();
                     <option value="Completed">Completed</option>
                     <option value="Order canceled">Order canceled</option>
                   </select>
-                </div>
+                </div> -->
                 <input type="hidden" name="order_id" value="<?php echo $order_row['id'] ?>">
                 <div class="product-add-btn flex">
                   <button type="submit" class="tp-btn">Save</button>

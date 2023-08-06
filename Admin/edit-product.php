@@ -114,13 +114,13 @@ $conn = connectToDatabase(); ?>
                                                             <span class="text-tiny leading-4">Set the base price of product.</span>
                                                         </div>
                                                         <!-- input -->
-                                                        <div class="mb-5">
+                                                        <!-- <div class="mb-5">
                                                             <p class="mb-0 text-base text-black">
                                                                 Old price <span class="text-red">*</span>
                                                             </p>
                                                             <input class="input w-full h-[44px] rounded-md border border-gray6 px-6 text-base" type="number" placeholder="Old price product" name="old_price" value="<?php echo $product['old_price']; ?>" required>
                                                             <span class="text-tiny leading-4">Set the old price of the product</span>
-                                                        </div>
+                                                        </div> -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -172,7 +172,7 @@ $conn = connectToDatabase(); ?>
                                         $product_id = $_POST['product_id'];
                                         $title = $_POST['title'];
                                         $price = $_POST['price'];
-                                        $old_price = $_POST['old_price'];
+                                        $old_price = round($price * 1.2);
                                         $thumbnail = $_POST['thumbnail'];
                                         $description = $_POST['description'];
                                         $category_id = $_POST['category'];

@@ -49,6 +49,10 @@
   <link rel="stylesheet" href="../../Admin/assets/css/main.css" />
 </head>
 <style>
+  #cart {
+    display: none;
+  }
+
   #all {
     display: flex;
     flex-direction: column;

@@ -108,7 +108,7 @@ $conn = connectToDatabase();
                 <!-- List Order -->
                 <?php
                 // Lấy dữ liệu từ bảng order và order_detail thông qua điều kiện kết nối
-                $sql = "SELECT * FROM orders";
+                $sql = "SELECT * FROM orders ORDER BY order_date DESC";
                 $result = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_assoc($result)) {
                 ?>

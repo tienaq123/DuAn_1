@@ -195,7 +195,7 @@
   width: 200px;
   height: 40px;
   text-align: center;
-  background-color: #ffb0bd;
+  background-color: #c23b51;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -203,6 +203,11 @@
   font-weight: 700;
   margin-top: 14px;
   margin-left: 50px;
+}
+
+.checkout .payment input[type="submit"]:hover {
+  background-color: #c55769;
+  transition: 0.5s;
 }
 
 /* Checkout-done */

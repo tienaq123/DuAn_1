@@ -1,0 +1,240 @@
+#main {
+  padding-top: 150px;
+  font-family: "Nunito";
+}
+
+.container {
+  padding-top: 100px;
+}
+
+.container-item {
+  display: flex;
+}
+.directional {
+  margin-bottom: 20px;
+}
+.directional span a {
+  color: #7d7d7d;
+}
+
+.checkout form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkout .info {
+  flex: 35%;
+  width: 100%;
+  padding: 0 30px;
+  border-right: 1px solid rgba(125, 125, 125, 0.2);
+}
+
+.checkout .info h3,
+.checkout .cart h3,
+.checkout .payment h3 {
+  display: flex;
+  align-items: center;
+}
+.checkout .info h3 span,
+.checkout .cart h3 span,
+.checkout .payment h3 span {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  color: #fff;
+  background: #ffb0bd;
+  border-radius: 50%;
+  font-size: 15px;
+  margin-right: 5px;
+  text-align: center;
+}
+
+.checkout .info input,
+.checkout .info select,
+.checkout .info textarea {
+  display: block;
+  width: 93% !important;
+  width: 250px;
+  height: 28px;
+  padding: 5px 15px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  margin-bottom: 20px;
+}
+
+.checkout .info select {
+  width: 100% !important;
+  height: auto;
+  padding: 10px 0;
+}
+
+.checkout .info textarea {
+  min-height: 120px;
+}
+
+.checkout .cart {
+  width: 100%;
+  margin-left: 10px;
+  padding: 0 20px;
+  border-right: 1px solid rgba(125, 125, 125, 0.2);
+  flex: 30%;
+}
+
+.checkout .cart table {
+  border-collapse: collapse;
+  border-bottom: 1px solid #a2a2a2;
+  width: 100%;
+}
+
+.checkout .cart-product {
+  width: 100%;
+  text-align: center;
+}
+
+.checkout .cart-product th {
+  border-bottom: 1px solid #a2a2a2;
+  padding-bottom: 15px;
+}
+.checkout .cart-product td {
+  padding: 10px 0;
+}
+
+.checkout .cart-product-2 td {
+  border-top: 1px solid rgba(125, 125, 125, 0.2);
+  padding: 8px 0;
+}
+
+.checkout .input-group {
+  display: flex;
+  align-items: center;
+}
+.checkout .input-group input {
+  display: block;
+  /* width: 93% !important; */
+  width: 250px;
+  height: 28px;
+  padding: 5px 15px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  margin-right: 20px;
+}
+
+.checkout .input-group button {
+  width: 100px;
+  height: 40px;
+  background-color: #ffb0bd;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 700;
+}
+
+.checkout .form-check label {
+  display: flex;
+  margin: 20px 0;
+}
+
+.checkout .form-check label p {
+  font-family: "Nunito";
+}
+
+.checkout .btn-done {
+  width: 100px;
+  height: 40px;
+  background-color: #ffb0bd;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 700;
+}
+
+.checkout .payment {
+  width: 100%;
+  flex: 35%;
+  margin-left: 10px;
+  padding: 0 20px;
+}
+
+.checkout .payment input[type="radio"] {
+  width: 15px;
+  height: 15px;
+}
+
+.checkout .payment input[type="text"] {
+  display: block;
+  /* width: 93% !important; */
+  width: 250px;
+  height: 28px;
+  padding: 5px 15px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  margin-top: 15px;
+}
+
+.checkout .payment input[type="submit"] {
+  width: 200px;
+  height: 40px;
+  text-align: center;
+  background-color: #c23b51;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 700;
+  margin-top: 14px;
+  margin-left: 50px;
+}
+
+.checkout .payment input[type="submit"]:hover {
+  background-color: #c55769;
+}
+
+/* Checkout-done */
+.checkout-done h1 {
+  font-family: "Nunito";
+  font-size: 40px;
+  text-align: center;
+  margin-top: 40px;
+  font-weight: 500;
+}
+
+.checkout-done .cart_bill-back {
+  width: 250px;
+  margin: auto;
+  font-family: "Nunito";
+  font-weight: normal;
+  font-size: 14px;
+  padding: 5px 10px;
+  text-align: center;
+  color: #fff;
+  background-color: #d84e4e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.checkout-done .cart_bill-back i {
+  font-size: 30px;
+}

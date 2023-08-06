@@ -31,7 +31,7 @@ function addProduct($conn, $productData)
     $title = $productData['product_name'];
     $description = $productData['description'];
     $price = $productData['price'];
-    $old_price = $productData['old_price'];
+    $old_price = round($price * 1.2);
     $thumbnail = $productData['thumbnail'];
     $category_id = $productData['category'];
     $created_at = date('Y-m-d H:i:s');

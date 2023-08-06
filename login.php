@@ -130,10 +130,24 @@ if (isset($_POST["login_submit"])) {
       $_SESSION["address"] = $user["address"];
       $_SESSION["role_id"] = $user["role_id"];
 
+
       // Chuyển hướng đến trang chủ hoặc trang sau khi đăng nhập thành công
       if ($user["role_id"] == 1) {
         header("Location: admin"); // Trang admin
       } else {
+        if (isset($_SESSION['cart_gues']) && is_array($_SESSION['cart_gues'])) {
+          // Kiểm tra xem biến $_SESSION['cart'] có tồn tại hay không
+          if (isset($_SESSION['cart']) && is_array($_SESSION['cart'])) {
+            // Hợp nhất hai mảng $_SESSION['cart_gues'] và $_SESSION['cart']
+            $_SESSION['cart'] = array_merge($_SESSION['cart'], $_SESSION['cart_gues']);
+          } else {
+            // Nếu biến $_SESSION['cart'] không tồn tại, chỉ cần gán giá trị của $_SESSION['cart_gues'] cho $_SESSION['cart']
+            $_SESSION['cart'] = $_SESSION['cart_gues'];
+          }
+
+          // Xóa biến $_SESSION['cart_gues'] sau khi hợp nhất
+          unset($_SESSION['cart_gues']);
+        }
         header("Location: index.php"); // Trang home
       }
       exit();
