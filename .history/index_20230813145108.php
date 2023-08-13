@@ -459,7 +459,7 @@
       <div id="containerisotope" class="clear">
         <!-- Get product SQL -->
         <?php
-        $products_per_page = 24;
+        $products_per_page = 30;
 
         $current_page =  1;
 

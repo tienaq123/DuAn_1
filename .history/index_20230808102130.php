@@ -83,13 +83,13 @@
         <nav class="leftnavigation">
           <ul>
             <li><a href="#services">Services</a></li>
-
+            <!--you can edit-->
             <li><a href="#testimonials">Testimonials</a></li>
-
+            <!--you can edit-->
             <li><a href="#sectionportfolio">Works</a></li>
-
+            <!--you can edit-->
             <li><a href="#sectionprices">Prices</a></li>
-
+            <!--you can edit-->
           </ul>
         </nav>
       </div>
@@ -109,11 +109,11 @@
         <nav class="rightnavigation">
           <ul>
             <li><a href="#sectionteam">Our Team</a></li>
-
+            <!--you can edit-->
             <li><a href="#sectionskills">Our Skills</a></li>
-
+            <!--you can edit-->
             <li><a href="#oursocial">Social</a></li>
-
+            <!--you can edit-->
             <!--  -->
             <?php
 
@@ -139,7 +139,7 @@
             }
             ?>
             <!--  -->
-
+            <!--you can edit-->
           </ul>
         </nav>
       </div>
@@ -246,8 +246,7 @@
       </div>
     </div>
   </section>
-  <!--end sectionslide-->
-  <!--start services-->
+  <!--end sectionslide--><!--start services-->
   <section id="services">
     <div class="bottomwaves"></div>
     <!--need for slide-->
@@ -266,12 +265,12 @@
       <div class="grid_4">
         <img width="100" class="rotate" alt="" src="./Public/img/section-services/service1.png" />
         <h2>Cake Design</h2>
-
+        <!--you can edit-->
         <p>
           Lorem ipsum dolor sit amet consect etur adipiscing elit. Curabitur
           sempo turpis quis est scelerisque sit amete.
         </p>
-
+        <!--you can edit-->
       </div>
       <!--Service-->
 
@@ -334,8 +333,7 @@
     </div>
     <!--end container-->
   </section>
-  <!--end services-->
-  <!--start testimonials-->
+  <!--end services--><!--start testimonials-->
   <section id="testimonials">
     <!--start anchors-->
     <div class="anchors">
@@ -362,7 +360,7 @@
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Suspendisse ut neque nulla. Nulla aliquam dictum arcu.
           </h2>
-
+          <!--you can edit-->
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Suspendisse ut neque nulla. Nulla aliquam dictum arcu, eget
@@ -371,7 +369,7 @@
             gravida placerat. Phasellus. Praesent placerat massa ut justo
             gravida placerat semper eu nibh.
           </p>
-
+          <!--you can edit-->
         </div>
         <!--end left testimonial-->
 
@@ -381,7 +379,7 @@
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Suspendisse ut neque nulla. Nulla aliquam dictum arcu.
           </h2>
-
+          <!--you can edit-->
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Suspendisse ut neque nulla. Nulla aliquam dictum arcu, eget
@@ -390,7 +388,7 @@
             gravida placerat. Phasellus. Praesent placerat massa ut justo
             gravida placerat semper eu nibh.
           </p>
-
+          <!--you can edit-->
         </div>
         <!--right testimonial-->
 
@@ -459,7 +457,7 @@
       <div id="containerisotope" class="clear">
         <!-- Get product SQL -->
         <?php
-        $products_per_page = 24;
+        $products_per_page = 30;
 
         $current_page =  1;
 
@@ -542,30 +540,31 @@
       <div class="grid_3 expand">
         <div class="logoprice">
           <img width="176" class="rotate" alt="" src="./Public/img/section-prices/price1.png" />
+          <!--you can edit the image, open the psd file for the vector image format-->
         </div>
         <div class="ribbon">
           <h2>$ 200,00 - <span>Lorem Ipsum</span></h2>
-
+          <!--you can edit-->
         </div>
         <div class="price">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
-
+          <!--you can edit-->
           <ul>
             <li>
               <p>Lorem ipsum dolor sit amet consec</p>
             </li>
-
+            <!--you can edit-->
             <li>
               <p>Lorem ipsum dolor sit amet consec</p>
             </li>
-
+            <!--you can edit-->
             <li>
               <p class="noborder">Lorem ipsum dolor sit amet consec</p>
             </li>
-
+            <!--you can edit-->
           </ul>
           <p class="btn red"><a href="#">Cupcakes</a></p>
-
+          <!--you can edit-->
         </div>
         <div class="triangle"></div>
       </div>
@@ -676,19 +675,19 @@
       <!--start team-->
       <div class="grid_3">
         <div class="avatar">
-          <img style="width: 250px; height: 250px; border-radius: 50%; background-size: cover;" class="opacity" alt="" src="./Public/img/anh-trieu-lo-tu_21.jpg" />
+          <img style="width: 250px; height: 250px; border-radius: 50%;" class="opacity" alt="" src="./Public/img/anh-trieu-lo-tu_21.jpg" />
           <!--you can edit the image, open the psd file for copy the rounded filter-->
         </div>
         <div class="team">
           <div class="bordertopteam"></div>
           <h2>Bui Huu Tien</h2>
-
+          <!--you can edit-->
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
             iaculis tortor sit amet quam malesuada porta. Duis lorem leo,
             commodo et molestie sit amet.
           </p>
-
+          <!--you can edit-->
         </div>
         <div class="socialteam">
           <a href="#"><img width="56" class="rotate" alt="" src="./Public/img/section-team/twittericon.png" /></a>
@@ -795,48 +794,51 @@
 
       <!--start left content-->
       <div class="grid_5">
-
+        <!--skill-->
         <div class="skilldescription">
           <div id="operator"></div>
           <img width="100" alt="" src="./Public/img/section-skills/icon1.png" />
+          <!--you can edit the image, open the psd file for the vector image format-->
           <h2>Creative Cake Design</h2>
-
+          <!--you can edit-->
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
             ante quam, volutpat eu gravida sit amet, vestibulum sed turpis.
             Etiam vel enim vel leo
           </p>
-
+          <!--you can edit-->
         </div>
+        <!--skill-->
 
-
-
+        <!--skill-->
         <div class="skilldescription">
           <img width="100" alt="" src="./Public/img/section-skills/icon2.png" />
+          <!--you can edit the image, open the psd file for the vector image format-->
           <h2>Lorem Ipsum Dolor Sit</h2>
-
+          <!--you can edit-->
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
             ante quam, volutpat eu gravida sit amet, vestibulum sed turpis.
             Etiam vel enim vel leo
           </p>
-
+          <!--you can edit-->
         </div>
+        <!--skill-->
 
-
-
+        <!--skill-->
         <div class="skilldescription">
           <img width="100" alt="" src="./Public/img/section-skills/icon3.png" />
+          <!--you can edit the image, open the psd file for the vector image format-->
           <h2>Creative Cake Design</h2>
-
+          <!--you can edit-->
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
             ante quam, volutpat eu gravida sit amet, vestibulum sed turpis.
             Etiam vel enim vel leo
           </p>
-
+          <!--you can edit-->
         </div>
-
+        <!--skill-->
       </div>
       <!--end left content-->
 
@@ -850,56 +852,56 @@
         <div id="allprogresbar">
           <!--progresbar-->
           <div class="progresbar">
-            <p>SÁNG TẠO VÀ THIẾT KẾ</p>
-
+            <p>LOREM IPSUM DOLOR SIT</p>
+            <!--you can edit-->
             <p class="numberbar">60</p>
-
+            <!--you can edit-->
             <div><span class="onebar"></span></div>
-
+            <!--edit the respective css class in style.css -->
           </div>
           <!--progresbar-->
 
           <!--progresbar-->
           <div class="progresbar">
-            <p>TINH THẦN SÁNG TẠO VÀ TRÌNH BÀY</p>
-
+            <p>LOREM IPSUM DOLOR SIT</p>
+            <!--you can edit-->
             <p class="numberbar">83</p>
-
+            <!--you can edit-->
             <div><span class="secondbar"></span></div>
-
+            <!--edit the respective css class in style.css -->
           </div>
           <!--progresbar-->
 
           <!--progresbar-->
           <div class="progresbar">
-            <p>KHẢ NĂNG LÀM VIỆC</p>
-
+            <p>LOREM IPSUM DOLOR SIT</p>
+            <!--you can edit-->
             <p class="numberbar">40</p>
-
+            <!--you can edit-->
             <div><span class="thirdbar"></span></div>
-
+            <!--edit the respective css class in style.css -->
           </div>
           <!--progresbar-->
 
           <!--progresbar-->
           <div class="progresbar">
-            <p>PHẢN HỒI TÍCH CỰC TỪ KHÁCH HÀNG</p>
-
+            <p>LOREM IPSUM DOLOR SIT</p>
+            <!--you can edit-->
             <p class="numberbar">72</p>
-
+            <!--you can edit-->
             <div><span class="fourthbar"></span></div>
-
+            <!--edit the respective css class in style.css -->
           </div>
           <!--progresbar-->
 
           <!--progresbar-->
           <div class="progresbar">
-            <p>KỸ NĂNG LÀM BÁNH CHUYÊN NGHIỆP</p>
-
+            <p>LOREM IPSUM DOLOR SIT</p>
+            <!--you can edit-->
             <p class="numberbar">93</p>
-
+            <!--you can edit-->
             <div><span class="fivebar"></span></div>
-
+            <!--edit the respective css class in style.css -->
           </div>
           <!--progresbar-->
         </div>

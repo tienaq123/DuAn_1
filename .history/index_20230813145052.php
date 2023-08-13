@@ -334,8 +334,7 @@
     </div>
     <!--end container-->
   </section>
-  <!--end services-->
-  <!--start testimonials-->
+  <!--end services--><!--start testimonials-->
   <section id="testimonials">
     <!--start anchors-->
     <div class="anchors">
@@ -459,7 +458,7 @@
       <div id="containerisotope" class="clear">
         <!-- Get product SQL -->
         <?php
-        $products_per_page = 24;
+        $products_per_page = 30;
 
         $current_page =  1;
 
