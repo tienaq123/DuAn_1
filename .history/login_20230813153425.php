@@ -174,10 +174,7 @@ elseif (isset($_POST["register_submit"])) {
   $address = $_POST["address"];
   $password = $_POST["password"];
   $agree_terms = $_POST["agree_terms"];
-  function isValidPhoneNumber($phoneNumber)
-  {
-    return preg_match('/^\d{10}$/', $phoneNumber);
-  }
+
   TODO:
   // Kiểm tra xem email đã tồn tại trong CSDL chưa
   $query_check_email = "SELECT * FROM User WHERE email = '$email'";
@@ -187,9 +184,9 @@ elseif (isset($_POST["register_submit"])) {
     // Email đã tồn tại, thông báo lỗi cho người dùng
     echo "Email already exists";
   } elseif (!isValidPhoneNumber($phone_number)) {
-    echo "Định dạng số điện thoại chưa chính xác";
+    echo "Please enter a valid phone number (10 digits).";
   } elseif (strlen($password) < 8) {
-    echo "Mật khẩu trên 8 ký tự";
+    echo "Password must be at least 8 characters.";
   } else {
     // Thực hiện đăng ký người dùng
     $role_id = 2; // Gán mặc định role_id = 2 cho người dùng (user)
@@ -207,7 +204,10 @@ elseif (isset($_POST["register_submit"])) {
       echo "Registration failed: " . mysqli_error($conn);
     }
   }
-
+  function isValidPhoneNumber($phoneNumber)
+  {
+    return preg_match('/^\d{10}$/', $phoneNumber);
+  }
 
   // Đóng kết nối CSDL
   mysqli_close($conn);

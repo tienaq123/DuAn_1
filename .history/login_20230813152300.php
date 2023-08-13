@@ -174,10 +174,7 @@ elseif (isset($_POST["register_submit"])) {
   $address = $_POST["address"];
   $password = $_POST["password"];
   $agree_terms = $_POST["agree_terms"];
-  function isValidPhoneNumber($phoneNumber)
-  {
-    return preg_match('/^\d{10}$/', $phoneNumber);
-  }
+
   TODO:
   // Kiểm tra xem email đã tồn tại trong CSDL chưa
   $query_check_email = "SELECT * FROM User WHERE email = '$email'";
@@ -186,10 +183,6 @@ elseif (isset($_POST["register_submit"])) {
   if (mysqli_num_rows($result_check_email) > 0) {
     // Email đã tồn tại, thông báo lỗi cho người dùng
     echo "Email already exists";
-  } elseif (!isValidPhoneNumber($phone_number)) {
-    echo "Định dạng số điện thoại chưa chính xác";
-  } elseif (strlen($password) < 8) {
-    echo "Mật khẩu trên 8 ký tự";
   } else {
     // Thực hiện đăng ký người dùng
     $role_id = 2; // Gán mặc định role_id = 2 cho người dùng (user)
@@ -208,7 +201,6 @@ elseif (isset($_POST["register_submit"])) {
     }
   }
 
-
   // Đóng kết nối CSDL
   mysqli_close($conn);
 }
@@ -218,19 +210,8 @@ elseif (isset($_POST["register_submit"])) {
 <!-- JavaScript validation -->
 <script>
   function validateForm() {
-    var phoneNumber = document.forms["registrationForm"]["phone_number"].value;
-    var password = document.forms["registrationForm"]["password"].value;
+    var email = document.forms["registrationForm"]["email"].value;
     var agreeTerms = document.forms["registrationForm"]["agree_terms"].checked;
-
-    if (!isValidPhoneNumber(phoneNumber)) {
-      alert("Please enter a valid phone number (10 digits).");
-      return false;
-    }
-
-    if (password.length < 8) {
-      alert("Password must be at least 8 characters.");
-      return false;
-    }
 
     if (!isValidEmail(email)) {
       alert("Please enter a valid email address.");
@@ -243,15 +224,11 @@ elseif (isset($_POST["register_submit"])) {
     }
   }
 
-  function isValidPhoneNumber(phoneNumber) {
-    var phoneNumberPattern = /^\d{10}$/;
-    return phoneNumberPattern.test(phoneNumber);
-  }
-
   function isValidEmail(email) {
     var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailPattern.test(email);
   }
 </script>
+
 
 </html>
